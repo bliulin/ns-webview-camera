@@ -11,6 +11,7 @@ export class KycExecutionPermissions extends android.webkit.WebChromeClient {
         try {
             //permissionRequest.grant([android.webkit.PermissionRequest.RESOURCE_VIDEO_CAPTURE]);
             permissionRequest.grant(resources);
+            console.log('permission granted in web chrome client.')
         } catch (e) {
             console.log('ERROR: ' + e);
         }

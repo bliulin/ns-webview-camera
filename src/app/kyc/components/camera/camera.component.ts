@@ -3,12 +3,13 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { isAndroid, WebView } from '@nativescript/core';
 import { WebViewExt } from '@nota/nativescript-webview-ext';
 import { WebViewInterface } from 'nativescript-webview-interface';
+const permissions = require("nativescript-permissions");
 
 @Component({
     selector: 'camera',
     template: `
         <DockLayout>
-            <Label dock="top">Camera POC</Label>
+            <Label dock="top" style="color: black">Camera POC</Label>
             <WebView #webView [src]="url" (loaded)="onWebViewLoaded()" marginTop="10"></WebView>
 
             <!-- <nota:WebViewExt #webView [src]="url" (loaded)="onWebViewLoaded()" debugMode="true"></nota:WebViewExt> -->
@@ -34,62 +35,29 @@ export class CameraComponent {
         //this.setup2();
     }
 
-    // private setup2() {
-    //   const webView: WebView = this.myWebView.nativeElement;
-
-    //   webView.on(WebViewExt.requestPermissionsEvent, (args: RequestPermissionsEventData) => {
-    //     const wantedPerssions = args.permissions
-    //         .map((p) => {
-    //             if (p === "RECORD_AUDIO") {
-    //                 return android.Manifest.permission.RECORD_AUDIO;
-    //             }
-
-    //             if (p === "CAMERA") {
-    //                 return android.Manifest.permission.CAMERA;
-    //             }
-
-    //             return p;
-    //         })
-    //         .filter((p) => !!p);
-
-    //     this.permissions
-    //         .requestPermissions(wantedPerssions)
-    //         .then(() => args.callback(true))
-    //         .catch(() => args.callback(false));
-    //  });
-    // }
-
     private setupWebViewInterface(url: string): void {
         const webView: WebView = this.myWebView.nativeElement;
+        if (isAndroid) {
+            const settings = webView.android.getSettings();
+            settings.setDomStorageEnabled(true);
+            settings.setJavaScriptEnabled(true);
+            settings.setSupportZoom(false);
+            settings.allowFileAccess = true;
+            settings.allowContentAccess = true;
+            settings.setAllowFileAccessFromFileURLs(true);
+            settings.setAllowUniversalAccessFromFileURLs(true);
 
-        if (!isAndroid) {
-            return;
-        }
+            webView.android.setWebViewClient(new android.webkit.WebViewClient());
 
-        const settings = webView.android.getSettings();
-        settings.setDomStorageEnabled(true);
-        settings.setJavaScriptEnabled(true);
-        settings.setSupportZoom(false);
-        settings.allowFileAccess = true;
-        settings.allowContentAccess = true;
-        settings.setAllowFileAccessFromFileURLs(true);
-        settings.setAllowUniversalAccessFromFileURLs(true);
-
-        webView.android.setWebViewClient(new android.webkit.WebViewClient());
-
-        this.permissions
-            .requestPermissions([android.Manifest.permission.CAMERA], '')
-            .then(() => {
+            permissions.requestPermissions([android.Manifest.permission.CAMERA], "").then(() => {
                 console.log('Permissions granted');
                 webView.android.setWebChromeClient(new KycExecutionPermissions());
-
                 webView.reload();
             })
-            .catch((e) => {
-                console.log(e);
+            .catch(() => {
                 console.log('No permissions granted');
             });
-
+        }
         this.oLangWebViewInterface = new WebViewInterface(webView, url);
         this.listenToActions();
     }
