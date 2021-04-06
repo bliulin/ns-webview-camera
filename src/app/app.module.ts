@@ -5,12 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
-import { StartupModule } from './startup/startup.module';
-import { DashboardComponent } from '~/app/components/dashboard/dashboard.component';
-import { DevLinksComponent } from '~/app/components/dev-links/dev-links.component';
 import { AppRoutingPreloadStrategy } from '~/app/app-routing.preload-strategy';
 import { NativeScriptMaterialBottomSheetModule } from 'nativescript-material-bottomsheet/angular';
-import { UnlockModule } from '~/app/unlock/unlock.module';
 
 import { registerLocaleData } from '@angular/common';
 import localeRo from '@angular/common/locales/ro';
@@ -25,8 +21,6 @@ registerLocaleData(localeRo, 'ro-RO');
         CoreModule,
         NativeScriptMaterialBottomSheetModule.forRoot(),
         TNSFontIconModule.forRoot(),
-        StartupModule,
-        UnlockModule,
     ],
     declarations: [AppComponent, CameraComponent],
     schemas: [NO_ERRORS_SCHEMA]

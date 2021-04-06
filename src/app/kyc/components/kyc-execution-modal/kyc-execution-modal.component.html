@@ -1,8 +1,0 @@
-<DockLayout>
-    <GridLayout dock="top" columns="60,*,60" rows="auto">
-        <omro-close-button col="0" (tapClose)="goBack()"></omro-close-button>
-        <Label class="h3" [text]="title" col="1" verticalAlignment="bottom" horizontalAlignment="center"></Label>
-    </GridLayout>
-    <Button dock="bottom" text="Redirect" class="btn btn-primary" (tap)="redirectToNextStep()"></Button>
-    <WebView #webView [src]="url$ | async" (loaded)="onWebViewLoaded()" marginTop="10"></WebView>
-</DockLayout>

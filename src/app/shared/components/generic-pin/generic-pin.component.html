@@ -1,8 +1,0 @@
-<StackLayout>
-    <StackLayout>
-        <Label class="h2 m-20" [text]="title" textWrap="true"></Label>
-        <Label *ngIf="description" class="m-20" textWrap="true" fontSize="16" [text]="description"></Label>
-    </StackLayout>
-
-    <CodeValidation #input (codeWasEntered)="emit($event)" [resetNotification]="resetNotification"></CodeValidation>
-</StackLayout>

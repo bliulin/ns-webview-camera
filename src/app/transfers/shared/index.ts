@@ -1,1 +1,0 @@
-export * from './omro-horizontal-button/omro-horizontal-button.component';

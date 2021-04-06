@@ -1,8 +1,0 @@
-@import '~/styles/mixins.scss';
-.option {
-  margin-bottom: 10;
-}
-
-.account-iban-row {
-  @include flex-design(row, space-between);
-}
