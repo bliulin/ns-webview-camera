@@ -1,0 +1,27 @@
+<StackLayout>
+  <BackButton (backWasPressed)="goBack()"></BackButton>
+  <omro-generic-pin
+    #genericPin
+    title="{{ 'Profile.Pin.Confirm.Title' | L }}"
+    description="{{ 'Profile.Pin.Confirm.Description' | L }}"
+    (codeEntered)="validatePIN($event)">
+  </omro-generic-pin>
+  <StackLayout minHeight="30">
+    <ValidationError
+      *ngIf="!!genericPinComponent && genericPinComponent.pin.valid === false"
+      class="text-center"
+      errorMessage="{{ 'Profile.Pin.Confirm.Error' | L }}">
+    </ValidationError>
+    <SuccessMessage
+      class="text-center"
+      *ngIf="!!genericPinComponent && genericPinComponent.pin.valid === true"
+      successMessage="{{ 'Profile.Pin.Confirm.Success' | L }}">
+    </SuccessMessage>
+  </StackLayout>
+  <Label
+  *ngIf="!backButtonDisabled"
+    class="clickable text-center"
+    text="{{ 'Common.Cancel' | L }}"
+    (tap)="goToProfilePage()">
+  </Label>
+</StackLayout>

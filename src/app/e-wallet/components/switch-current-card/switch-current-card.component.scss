@@ -1,0 +1,57 @@
+@import '~/styles/_omro-main-colors.scss';
+@import '~/styles/_sizes.scss';
+@import '~/styles/mixins.scss';
+
+.action-info-txt {
+  margin: 20, 0, 10, 0;
+}
+
+.main-container {
+  margin: 20, 20, 20, 20;
+  .loan-selectable-card {
+    border-width: 2;
+    border-color: $omro-gray;
+    border-radius: 8;
+
+    .icon-loan-purpose {
+      @include flex-design(column, space-between);
+      margin-bottom: -8;
+    }
+
+    &.selected {
+      border-color: $omro-sky-dark;
+    }
+  }
+
+  .icon-container {
+    height: 50;
+    width: 65;
+    border-radius: 6;
+    vertical-align: center;
+    .icon {
+      font-size: $size-s + $size-m;
+    }
+  }
+
+  .status-circle {
+    background-color: $omro-sky-dark;
+    width: 24;
+    height: 24;
+    border-radius: 100%;
+    text-align: center;
+    .check {
+      font-size: 12;
+    }
+  }
+}
+
+.loan-selectable-card-border {
+  border-width: 3;
+  border-color: $omro-white;
+  border-radius: 10;
+  margin-bottom: 10;
+
+  &.selected {
+    border-color: lighten($omro-sky-dark, 30%);
+  }
+}

@@ -1,0 +1,25 @@
+<ScrollView>
+    <DockLayout class="page" *ngIf="genericStage as vm">
+        <StackLayout dock="top">
+            <omro-credit-request-progress (closePressed)="close()"></omro-credit-request-progress>
+        </StackLayout>
+        <Button
+            dock="bottom"
+            class="btn btn-primary x-large action-btn"
+            row="3"
+            [isEnabled]="!!checkbox ? checkbox.valid : true"
+            [text]="vm.mainActionButtonText"
+            (tap)="onButtonTap()"
+        ></Button>
+        <GridLayout class="main-container" rows="auto, auto, *, auto">
+            <Label class="h2" [text]="vm.title" textWrap="true"></Label>
+            <StackLayout row="1" class="m-y-30" verticalAlignment="center">
+                <SVGImage [src]="'~/app/images/new_loan_resolution_manual.svg'" width="250" height="241"></SVGImage>
+            </StackLayout>
+            <StackLayout row="2" verticalAlignment="center">
+                <Label class="title" [text]="vm.details" textWrap="true"></Label>
+                <omro-checkbox *ngIf="needsUserApproval()" [formControl]="checkbox" [text]="vm.userApprovalCheckbox"></omro-checkbox>
+            </StackLayout>
+        </GridLayout>
+    </DockLayout>
+</ScrollView>

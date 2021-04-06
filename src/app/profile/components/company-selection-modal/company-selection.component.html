@@ -1,0 +1,22 @@
+<StackLayout>
+  <StackLayout class="bottom-sheet-slider"></StackLayout>
+  <StackLayout class="bottom-sheet-layout" backgroundColor="white">
+    <Label class="text-center" text="{{'Profile.Company.OptionText_ChooseActiveCompany' | L}}" marginTop="20" marginBottom="10" color="#131C4D" fontSize="15" fontWeight="500"></Label>
+    <StackLayout class="m-20" *ngIf="companies$ | async as companies">
+          <ng-container *ngFor="let company of companies">
+          <GridLayout class="company-card" [class.selected]="company.isSelected" marginBottom="20" rows="auto" columns="*, 30" (tap)="onTap(company.customerId)">
+            <GridLayout class="icon-company-name" rows="auto" columns="auto, *">
+              <img  src="res://building" marginRight="10" width="20" height="20"/>
+              <Label col="1" maxLines="2" text="{{ company.customerName }}" fontSize="13" android:textWrap="true" fontWeight="500" color="#131C4D"></Label>
+            </GridLayout>
+            <StackLayout *ngIf="company.isSelected" col="1" class="status-container" verticalAlignment="top" horizontalAlignment="right"  marginRight="5" marginTop="5">
+              <StackLayout class="status-circle" verticalAlignment="center">
+                <Label text="&#xf00c;" color="white" class="fas check">
+                </Label>
+              </StackLayout>
+             </StackLayout>
+          </GridLayout>
+        </ng-container>
+    </StackLayout>
+  </StackLayout>
+</StackLayout>

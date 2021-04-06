@@ -1,0 +1,22 @@
+# Android build
+
+trigger:
+- master
+
+pool:
+  vmImage: 'macos-latest'
+
+steps:
+- task: UseNode@1
+  inputs:
+    version: '12.x'
+- task: CmdLine@2
+  inputs:
+    script: |
+      npm install -g nativescript
+      tns build android
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'platforms/android/app/build/outputs/apk/debug'
+    ArtifactName: 'digitalAppAndroid'
+    publishLocation: 'Container'

@@ -1,0 +1,19 @@
+<StackLayout>
+    <Label class="m-20 title" [text]="'EWallet.Homepage.Configuration' | L | uppercase"></Label>
+    <StackLayout class="setting-container">
+        <ng-container *ngFor="let item of settings$ | async">
+            <StackLayout class="list-group settings">
+                <FlexboxLayout class="settings-section-row" [ngClass]="item.style | lowercase" (tap)="onSettingTap(item.action)" #row>
+                    <StackLayout orientation="horizontal" marginLeft="20">
+                        <Label [text]="item.iconCode" class="ff section-icon" verticalAlignment="center"></Label>
+                        <Label [text]="item.name" class="list-group-item section-name"></Label>
+                    </StackLayout>
+                    <StackLayout class="list-group-item">
+                        <Label [text]="item.description" class="section-description"></Label>
+                    </StackLayout>
+                </FlexboxLayout>
+                <StackLayout class="hr"></StackLayout>
+            </StackLayout>
+        </ng-container>
+    </StackLayout>
+</StackLayout>

@@ -1,0 +1,44 @@
+<ScrollView scrollBarIndicatorVisible="false">
+    <DockLayout class="page" *ngIf="vm$ | async as vm">
+        <StackLayout dock="top" class="close-button-container" horizontalAlignment="right" (tap)="onClose()">
+            <SVGImage class="close_icon" src="~/app/images/icon_close.svg"></SVGImage>
+        </StackLayout>
+        <Button
+            dock="bottom"
+            marginBottom="30"
+            class="btn btn-primary x-large"
+            [text]="'Transfers.Homepage.BusinessPartners.PartnerDetails.NewPaymentButtonText' | L"
+            [isEnabled]="selectedAccountFormControl.valid"
+            (tap)="onNewPaymentTap()"
+            width="50%"
+            horizontalAlignment="right"
+        ></Button>
+        <StackLayout>
+            <StackLayout class="m-20">
+                <Label class="h2" [text]="'Transfers.Homepage.BusinessPartners.PartnerDetails.HeaderText' | L" textWrap="true"></Label>
+                <omro-info-field marginTop="30" [caption]="'Transfers.Homepage.BusinessPartners.PartnerDetails.NameLabelText' | L">
+                    <Label [text]="vm.name"></Label>
+                </omro-info-field>
+                <StackLayout class="m-y-30">
+                    <omro-radio-buttons-select
+                        [possibleValues]="existingAccounts"
+                        [formControl]="selectedAccountFormControl"
+                        [hasCustomContent]="true"
+                        [customData]="accountsCurrency"
+                        [initialValue]="initialValue"
+                    >
+                    </omro-radio-buttons-select>
+                </StackLayout>
+            </StackLayout>
+            <omro-horizontal-button marginBottom="10" (onButtonTap)="onAddNewPartnerTap(vm)" [buttonHasBorder]="true">
+                <Label icon text="&#xf067;" class="fas lbl-icon"> </Label>
+                <Label
+                    text
+                    android:verticalAlignment="center"
+                    col="1"
+                    [text]="'Transfers.Homepage.BusinessPartners.PartnerDetails.AddNewAccountButtonText' | L"
+                ></Label>
+            </omro-horizontal-button>
+        </StackLayout>
+    </DockLayout>
+</ScrollView>

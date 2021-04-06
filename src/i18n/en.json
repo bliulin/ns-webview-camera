@@ -1,0 +1,636 @@
+{
+  "app.name": "filbo",
+  "Common": {
+    "No": "Nu",
+    "Yes": "Da",
+    "Ok": "OK",
+    "Cancel": "Anulează",
+    "Close": "Închide",
+    "Delete": "Șterge",
+    "Confirm": "Confirmă",
+    "Credit": "Credit",
+    "NoItems": "No items",
+    "Credits": "Credite",
+    "Months": "Luni",
+    "Actions": "Acțiuni",
+    "GenericSuccessMessage": {
+      "title": "Success!",
+      "detail": "Operațiunea a avut loc cu success!"
+    },
+    "Hey": "Hey",
+    "Skip": "skip",
+    "GenericErrorMessage": {
+      "title": "Eroare",
+      "detail": "Operațiunea a eșuat! Te rugăm să încerci mai târziu."
+    },
+    "Next": "Continuă",
+    "Start": "Start",
+    "Continue": "Continuă",
+    "Change": "Modifică",
+    "Download": "Descarcă",
+    "Error_Title": "Something went wrong",
+    "Generic_ErrorMessage": "Cererea nu a putut fi procesată. Va rugăm încercați din nou",
+    "SelectAValue": "Vă rugăm selectați",
+    "Back": "Înapoi",
+    "Save": "Salvează",
+    "AreYouSure": "Ești sigur?",
+    "Quit": "Renunță",
+    "NoInternetError": {
+      "title": "No internet",
+      "detail": "There is no internet access"
+    },
+    "Seconds": "Secunde"
+  },
+  "KYC": {
+    "Label_FailedTitle": "Procesul de KYC a esuat",
+    "Label_FailedDescription": "Din păcate procesul de KYC a eșuat. Te rugăm să încerci mai târziu.",
+    "Label_WeAreCheckingYou": "Verificăm cererea ta",
+    "Label_ConfirmLeaveKycProcess": "Ești sigur că vrei să anulezi procesul de KYC?"
+  },
+  "Onboarding": {
+    "Screen1_Title": "Finanțare pentru IMM și PFA",
+    "Screen1_Description": "Credite pentru capital de lucru sau investiții, fără povara munților de documente și fără birocrație, ca să poți să te concentrezi pe creșterea afacerii tale 🚀",
+    "Screen2_Title": "100% online",
+    "Screen2_Description": "Răspunzi la câteva întrebări rapide despre afacerea ta, încarci documentele necesare și te identifici online. Super simplu ☺️",
+    "Screen3_Title": "Aprobare în maxim 24h",
+    "Screen3_Description": "Dacă toate verificările sunt în regulă, îți trimitem pe email ce e de semnat. E simplu: intri pe link, semnezi electronic și ai banii în contul tău a doua zi 💰"
+  },
+  "Home": {
+    "Title": "Home translated",
+    "Edit_Home_Number": "Edit home number %s"
+  },
+  "PhoneRegistration": {
+    "Title": "Phone registration",
+    "Heading": "Hai să ne cunoaștem",
+    "Description": "Orice afacere de succes are în spate un manager puternic. Acesta eşti tu! 💪",
+    "ContinueButton": "Continuă",
+    "FirstName": "Prenume",
+    "LastName": "Nume",
+    "Number": "Număr",
+    "Prefix": "Prefix",
+    "AreYouSure": "Ești sigur?",
+    "AreYouSureDescription": "Dacă anulezi va trebui să reiei procesul de înrolare de la capăt.",
+    "FirstStep": {
+      "Errors": {
+        "firstName": {
+          "required": "Completează prenumele!"
+        },
+        "lastName": {
+          "required": "Completează numele!"
+        },
+        "phoneNumber": {
+          "required": "Completează numărul tău de mobil!",
+          "pattern": "Număr invalid!"
+        },
+        "countryPrefix": {
+          "required": "Completează prefixul!"
+        }
+      }
+    },
+    "SecondStep": {
+      "Hello": "Salut",
+      "Description": "Te rog să introduci codul trimis prin SMS la numărul",
+      "ResendCode": "Retrimite codul",
+      "YouCanResendCode": "Puteti retrimite codul in",
+      "CodeSent": "Code sent",
+      "AnewCodeWasSent": "A new code was sent and it will arrive shortly. Please check your sms",
+      "Seconds": "Secunde"
+    },
+    "ThirdStep": {
+      "Heading": "Te rugăm să-ți alegi o parolă",
+      "Description": "Parola trebuie să conțină cel puțin 8 caractere, o literă mare, un număr și un caracter special",
+      "Password": "Parolă",
+      "ConfirmPassword": "Confirmă parola",
+      "CreateAccount": "Creează contul",
+      "Errors": {
+        "password": {
+          "required": "Introduceți parola",
+          "passwordsMatch": "Cele 2 parole nu corespund",
+          "pattern": "Parola trebuie să conțină cel puțin 8 caractere, o literă mare, un număr și un caracter special"
+        }
+      }
+    }
+  },
+  "Email": {
+    "TitleMenuItem": "Email registration",
+    "NewAccountLabel": "Cont nou",
+
+    "Registration": {
+      "Description": "👋 Salut, eu sunt Filbo. Hai să ne cunoaştem!",
+      "TermsAndConditionsLabelText": "Sunt de acord cu ",
+      "TermsAndConditionsClickableSpanText": "prelucrarea datelor în scop de marketing",
+      "MarketingCampaignsLabelText": "Am citit si sunt de acord cu ",
+      "MarketingCampaignsClickableSpanText": "Politica privind prelucrarea datelor cu caracter personal",
+      "PrivacyPolicyTermsLabelText": "Please accept the ",
+      "PrivacyPolicyTermsClickableSpanText": "privacy policy terms.",
+      "SubmitButtonText": "Creează cont",
+      "LoginLabelInfoText": "Ai deja cont? ",
+      "LoginLabelActionText": "Intră în cont",
+      "EmailHint": "Adresa de email",
+      "CUIHint": "CUI-ul afacerii tale",
+
+      "Errors": {
+        "email": {
+          "required": "Completeaza adresa de email",
+          "email": "Adresa de email nu este valida"
+        },
+        "cif": {
+          "required": "Completeaza CUI-ul afacerii tale",
+          "validCUI": "CUI-ul nu este valid"
+        }
+      }
+    },
+
+    "Confirmation": {
+      "Description": "Te rog să introduci codul primit prin email la adresa",
+      "ResendCodeLabelText": "Retrimite codul",
+      "TimerInfoLabelText": "Poți să retrimiți codul în",
+      "Seconds": "secunde",
+      "ResendCodeSuccessBanner": {
+        "Title": "Cod trimis!",
+        "Details": "Un cod nou a fost trimis și va ajunge în scurt timp"
+      }
+    }
+  },
+  "AppStatus": {
+    "Update": "Update",
+    "SkipThisVersion": "Skip this version",
+    "NewVersionTitle": "New version!",
+    "SkippableUpdateDescription": "Description with PT Sans - a darker gray for better contrast even at this stage",
+    "UrgentUpdateDescription": "Description with PT Sans - a darker gray for better contrast even at this stage",
+    "MaintenanceTitle": "Mentenanță",
+    "MaintenanceDescription": "Description with PT Sans - a darker gray for better contrast even at this stage",
+    "CloseApp": "Close app"
+  },
+  "TermsAndConditions": {
+    "Title": "Terms and conditions",
+    "UpdatedSubTitle": "changed %s",
+    "Accept_ButtonLabel": "Accept",
+    "Continue": "Continuă",
+    "CloseApp": "Close app"
+  },
+  "GDPRAccord": {
+    "Title": "Accord GDPR"
+  },
+  "Profile": {
+    "Header": "Profil",
+    "ValidateAccount": {
+      "Title": "Identificare",
+      "Details": "Te rugăm să te identifici prin procesul de Know Your Customer"
+    },
+    "Companies": {
+      "Header": "COMPANII",
+      "Actions": {
+        "SetActive": "Alege companie activă",
+        "Details": "Detalii companie",
+        "Remove": "Șterge companie"
+      },
+      "AddCompany": "Adaugă companie"
+    },
+    "Settings": {
+      "SectionTitle": "SETĂRI",
+      "Actions": {
+        "Notifications": {
+          "Title": "Notifications",
+          "Description": "all notifications"
+        },
+        "SetLanguage": {
+          "Title": "Setări limbă"
+        },
+        "ChangePin": {
+          "Title": "Modifică PIN"
+        },
+        "Biometrics": {
+          "Title": "Sign in with biometrics"
+        },
+        "ResetPasword": {
+          "Title": "Resetează parola"
+        },
+        "LogOut": {
+          "Title": "Log out"
+        }
+      },
+      "Title": "Application lock",
+      "PinInfoLabel": "PIN code",
+      "PinDescriptionLabel": "Set up a 4 digits PIN code to unlock the app",
+      "ChangePinInfoLabel": "Change PIN",
+      "BiometricInfoLabel": "Biometric unlock",
+      "BiometricDescriptionLabel": "Use fingerprint or face recognition to unlock the app",
+      "ResetPassword": "Resetează parola",
+      "AreYouSureYouWantToReset": "Ești sigur că vrei să-ți resetezi parola?",
+      "YesReset": "Da, resetează",
+      "BackToHome": "Back to home"
+    },
+    "Pin": {
+      "SetPin": {
+        "Title": "Setează un cod PIN",
+        "Description": "Acest cod te va ajuta să te loghezi ușor în aplicație."
+      },
+      "ChangePin": {
+        "Title": "Setează un nou cod PIN",
+        "Description": "Acest cod te va ajuta să te loghezi ușor în aplicație."
+      },
+      "Confirm": {
+        "Title": "Confirmă codul PIN",
+        "Description": "Acest cod te va ajuta să te loghezi ușor în aplicație.",
+        "Error": "PIN-ul introdus nu corespunde cu cel introdus la pasul anterior",
+        "Success": "Codul PIN a fost setat cu succes!"
+      }
+    },
+    "Biometric": {
+      "Title": "Protejează-ți datele folosind autentificarea biometrică",
+      "Description": "Autentificarea biometrică te va ajuta să te loghezi ușor în aplicație",
+      "ActivateBiometrics": "Activează"
+    },
+    "Company": {
+      "TradeRegisterLabelText": "REGISTRUL COMERTULUI",
+      "CUILabelText": "CUI",
+      "RegistrationLabelText": "ÎNREGISTRARE",
+      "MainAdressLabelText": "SEDIU PRINCIPAL",
+      "CAENLabelText": "COD CAEN",
+      "ActionsLabelText": "Acțiuni companie",
+      "DetailsHeaderText": "Detalii companie",
+      "Remove": "Șterge companie",
+      "RemoveConfirmationHeaderText": "Ești sigur că vrei să ștergi compania?",
+      "UploadDocumentMainText": "Incarcă documente",
+      "UploadDocumentSecondaryText": "Pentru procesul de KYC",
+      "DynamicFormMainText": "Formular dinamic",
+      "DynamicFormSecondaryText": "Buletin/pasaport",
+      "OptionText_ChooseActiveCompany": "Alege compania activă"
+    }
+  },
+  "Unlock": {
+    "Hi": "Hi",
+    "AppUnlockWithFingerprint": "Application unlock with fingerprint",
+    "AppUnlockWithFace": "Application unlock with face recognition",
+    "TouchIdForOmro": "Touch ID for \"OMRO\"",
+    "UseFingerprintToAuth": "Folosește amprenta pentru a te autentifica in Filbo",
+    "UsePinCode": "Use PIN code",
+    "BackToFingerprint": "Back to fingerprint",
+    "BackToFace": "Back to face recognition",
+    "ForgotPin": "Forgot?",
+    "InvalidPin": "Pin invalid!"
+  },
+  "CreditRequest": {
+    "Homepage": {
+      "LoanActivitiesSectionLabelText": "Installments",
+      "ActivateButtonText": "Aplică acum",
+      "LoanCard": {
+        "RemainingAmount": "Rămas de plată",
+        "PayLoanActionButtonText": "Plătește creditul",
+        "TotalAmount": "Valoare credit",
+        "LoanPeriod": "Perioadă",
+        "LoanDestination": "Destinație",
+        "DetailsActionButtonText": "Detalii credit",
+        "Months": "luni",
+        "TooltipInfo": "Remained to pay",
+        "Details": {
+          "Header": "Detalii credit",
+          "Destination": "Destinație",
+          "Amount": "Valoare credit",
+          "RemainingAmount": "Rămas de plată",
+          "Interest": "Interest",
+          "Period": "Perioadă",
+          "NextRate": "Următoarea rată",
+          "Status": "Status",
+          "PaymentOptions": "Opțiuni de plată",
+          "AutoPayment": "Plată automată",
+          "BankTransferPayment": "Plată in cont IBAN - ",
+          "ButtonText": "Modifică",
+          "Months": "luni",
+          "InDesfasurare": "În desfășurare",
+          "Rambursat": "Rambursat"
+        }
+      },
+      "SwitchLoan": {
+        "Header": "Credite"
+      },
+      "StandardEligibleProduct": {
+        "PercentageModalCreditScore": "Credit score"
+      }
+    },
+    "StandardProductOverview": {
+      "Screen1_Title": "Credite rapide",
+      "Screen1_Description": "Try not to drool when you think about the slightly charred, medium-rare meat The palatable sensation we lovingly refer to as has a distinguished and illustrious history.",
+      "Screen2_Title": "Aplici online in 5 minute",
+      "Screen2_Description": "Try not to drool when you think about the slightly charred, medium-rare meat The palatable sensation we lovingly refer to as has a distinguished and illustrious history.",
+      "Screen3_Title": "Banii în 24h",
+      "Screen3_Description": "Try not to drool when you think about the slightly charred, medium-rare meat The palatable sensation we lovingly refer to as has a distinguished and illustrious history."
+    },
+    "Overview": {
+      "CreditInApproval": "Credit in aprobare",
+      "ProductRequestState": {
+        "CanceledByUser": "Anulat de utilizator",
+        "InProgress": "În curs de procesare",
+        "Rejected": "Respins",
+        "Finished": "Finalizat"
+      },
+      "NumberOfInstallments": "Număr rate",
+      "TotalInMonth": "Total pe lună",
+      "AttachedDocuments": "Documente atașate",
+      "ProcessHistory": "Istoric proces",
+      "LoanAmount": "Suma creditului",
+      "Destination": "Destinație",
+      "Period": "Perioadă",
+      "Interest": "Dobândă",
+      "AreYouSure": "Ești sigur?",
+      "AreYouSureYouWantToDelete": "Ești sigur că vrei să anulezi cererea?",
+      "YesDelete": "Da, anulează",
+      "DeleteFile": "Anulează cererea"
+    },
+    "NewCredit": "Credit nou",
+    "ContractPeriod": "Perioada",
+    "Interest": "Rata dobânzii",
+    "MonthlyPayment": "Rata lunară",
+    "TotalPayment": "Total de plătit",
+    "DoYouWantToChangePeriod": "Vrei sa schimbi perioada împrumutului?",
+    "IAgree": "Sunt de acord",
+    "NoThankYou": "Nu, multumesc",
+    "GiveUpOffer": "Renunță la ofertă",
+    "ForWhatReasonYouDidNotLike": "Din ce motiv nu ți-a plăcut oferta noastră?",
+    "Quit": "Renunță"
+  },
+  "ProductRequest": {
+    "AddDocuments": "Adaugă documente",
+    "Initiate": {
+      "Period": "luni",
+      "LoanDestinationLabel": "Destinația creditului",
+      "LoanPeriodLabel": "Pe ce perioadă vrei să iei creditul?"
+    },
+    "CheckOfferStatus": {
+      "InProgressInfoLabel": "Verificăm cererea ta",
+      "InProgressTimeExceededInfoLabel": "Nu vrei sa mai astepti?",
+      "InProgressTimeExceededSecondInfoLabel": "Procesul continua in spate.",
+      "InProgressTimeExceededButtonText": "Go to dashboard",
+      "NeedsManualApprovalHeader": "Avizare manuala Filbo",
+      "NeedsManualApprovalInfoLabel": "Creditul este in verificare la Filbo. O sa primesti o notificare in cel mai scurt timp!",
+      "RejectedHeader": "Nu ești eligibil pentru credit",
+      "RejectedInfoLabel": "Nu esti eligibil pentru acest produs. Ne pare rau!"
+    },
+    "UploadDocumentsNoItemsDescription": "Description with PT Sans - a darker gray for better contrast even at this stage",
+    "UploadButtonText": "Upload",
+    "UploadButtonTextItems": "Uploadează %s elemente",
+    "SendDocumentsButtonText": "Trimite documente",
+    "ItemsSelected": "%s elemente selectare",
+    "AddMoreFiles": "Adaugă fișiere",
+    "DocumentsToSend": "Documente de încărcat",
+    "Error_Upload": "Eroare la upload",
+    "Error_DeleteFile": "Eroare la ștergerea fișierului",
+    "Error_TooManyFiles": "Some files were not uploaded because the maximum number of files was exceeded!",
+    "Error_FileTooLarge": "One or more of the selected files are too large!",
+    "Error_FailedToUpload": "A apărut o eroare la încărcarea fișierului. Vă rugăm încercați din nou.",
+    "Error_FailedToDelete": "A apărut o eroare la ștergerea fișierului. Vă rugăm încercați din nou.",
+    "Upload_Retry": "Retry",
+    "Continue": "Continuă",
+    "TapToDownload": "Tap to download",
+    "ConfirmUploadedAllDocuments": "Ești sigur că ai urcat toate documentele?",
+    "ConfirmCancelProductRequest": "Ești sigur că vrei să anulezi cererea de credit?",
+    "AreYouSure": "Ești sigur?"
+  },
+  "UploadDocuments": {
+    "FinalizeUpload": "Finalizează upload",
+    "ContinueLater": "Continuă mai târziu",
+    "Error_Download": "Eroare la download",
+    "Error_FailedToDownload": "A apărut o eroare la descărcarea fișierului. Vă rugăm încercați din nou."
+  },
+  "DynamicForm": {
+    "ValidationMessages": {
+      "required": "Va rugam completati campul!",
+      "min": "Introduceti o valoare mai mare!",
+      "max": "Introduceti o valoare mai mică!",
+      "pattern": "Valoarea nu este validă!"
+    }
+  },
+  "EWallet": {
+    "Homepage": {
+      "HeaderText": "Carduri",
+      "NoCardsAdded": {
+        "ActivateButtonText": "Time to get started",
+        "Description": "It’s time to get the best card for your daily business expenses.",
+        "ModalTitle": "Alege tipul cardului",
+        "CardVirtual": "Card virtual",
+        "CardFizic": "Card fizic",
+        "NewCard": {
+          "SetPinTitle": "Seteaza codul PIN pentru noul tau card",
+          "ConfirmPinTitle": "Confirma codul PIN pentru noul tau card",
+          "DeliveryAdress": {
+            "Title": "Confirma adresa de livrare",
+            "FormLabels": {
+              "Adress1": "Adresa 1",
+              "Adress2": "Adresa 2",
+              "PostalCode": "Cod postal",
+              "City": "Localitate",
+              "County": "Judet"
+            },
+            "ValidationErrors": {
+              "Required": "Câmp obligatoriu",
+              "MaxLength": "Ai depășit limita maximă de caractere."
+            }
+          },
+          "Name": {
+            "SetNameTitle": "Adauga un nume cardului tau",
+            "Label": "Nume card"
+          }
+        }
+      },
+      "AddCard": "Adauga card",
+      "Configuration": "Configurare"
+    },
+    "CardDetails": {
+      "LimitOfMonthlySpending": "Limita cheltuieli lunare",
+      "LimitAtmWithdrawal": "Limita retrageri ATM",
+      "TopUp": "Top up",
+      "Details": "Detalii card",
+      "ShowPin": "Afișează PIN",
+      "ShowCardDetails": "Afișează detalii card",
+      "WillDisappearIn": "O să dispară în",
+      "State": {
+        "PendingIssuing": "In curs de emitere",
+        "NotActivated": "Inactiv",
+        "Active": "Activ",
+        "Lost": "Pierdut",
+        "Stolen": "Furat",
+        "Destroyed": "Distrus",
+        "DoNotHonor": "Blocat"
+      }
+    },
+    "Configuration": {
+      "TransactionLimit": {
+        "DisplayName": "Limite de tranzactionare",
+        "CurrentLimitLabelText": "limita curenta",
+        "MaximumLimitLabelText": "limita maxima",
+        "NewAmountInputLabelText": "Limita nouă"
+      },
+      "Settings": {
+        "DisplayName": "Setări",
+        "UpdateSuccessTitle": "Success!",
+        "UpdateSuccessDescription": "The setting was updated successfully!"
+      },
+      "ChangePin": {
+        "DisplayName": "Schimbă PIN",
+        "ChangeCardPinTitle": "Schimbă codul PIN pentru cardul tău",
+        "ChangeCardPinConfirmTitle": "Confirmă noul cod PIN",
+        "ChangeCardPinSuccessMessage": "Pin-ul cardului a fost schimbat cu succes!"
+      },
+      "ActivateCard": "Activează card",
+      "BlockCard": {
+        "DisplayName": "Blochează card",
+        "ModalTitle": "Blocare card",
+        "ModalDetails": "Din ce motiv vrei să blochezi cardul?",
+        "BlockActionButtonText": "Blochează",
+        "ConfirmationModalCardBlockDetails": "Ești sigur că vrei să blochezi cardul?",
+        "ConfirmationModalActivateCardDetails": "Ești sigur că vrei să activezi cardul?"
+      }
+    }
+  },
+  "Accounts": {
+    "Homepage": {
+      "HeaderText": "Conturile mele",
+      "ButtonText_NewAccount": "Cont nou",
+      "Transactions": {
+        "HeaderText": "tranzacții"
+      }
+    },
+    "AccountCard": {
+      "NewTransaction": "Tranzacție nouă",
+      "ReceiptsLast6Months": "încasări ultimele 6 luni",
+      "PaymentsInTheLast6Months": "plăți ultimele 6 luni",
+      "PageTitle_ConfigureNewAccount": "Configurează un cont nou pentru afacerea ta",
+      "Label_AccountName": "Nume cont",
+      "Label_CurrencyAccount": "Valuta contului",
+      "AccountDetails_ButtonText": "Detalii cont"
+    },
+    "AccountDetails": {
+      "Title": "Detaliile contului tău",
+      "IBAN": "Cont IBAN",
+      "AccountCurrency": "Valuta contului",
+      "Currency": "Valuta",
+      "Bank": "Banca",
+      "SwiftCode": "Cod Swift",
+      "BankAddress": "Adresa bancii",
+      "AssociatedCard": "Carduri asociate contului",
+      "RequestNewCard": "Solicita un card nou",
+      "EmitCard": "Emite card",
+      "SendStatementViaEmail": "Trimite extras de cont pe email",
+      "Statement": {
+        "HeaderText": "Extras de cont",
+        "IbanCaptionText": "cont iban",
+        "AccountCurrencyCaptionText": "valuta contului",
+        "StartDate": "Incepând cu data",
+        "EndDate": "Pană la data",
+        "SendButtonText": "Trimite"
+      }
+    },
+    "TransactionDetails": {
+      "TransactionDetailsHeader": "Detalii tranzactie",
+      "TransactionValue_Label": "Valoarea tranzactiei",
+      "TransactionType_Label": "Tipul tranzactiei",
+      "TransactionDate_Label": "Data tranzactiei",
+      "Beneficiary_Label": "Beneficiar",
+      "BenefIBAN_Label": "Cont IBAN al beneficiarului",
+      "BenefBank_Label": "Banca beneficiara",
+      "Payer_Label": "Platitor",
+      "PayerIBAN_Label": "Cont IBAN al platitorului",
+      "ExchangeRate_Label": "Cursul de schimb",
+      "CurrencyPair_Label": "Perechea valutara",
+      "Status_Label": "Status",
+      "SendConfirmationViaEmail_ButtonText": "Trimite confirmarea tranzactiei pe email",
+      "TransactionReference_Label": "Referinta tranzactiei",
+      "ComisionFilbo_Label": "Comision Filbo",
+      "ComisionSistemeDecontare_Label": "Comision sisteme de decontare (sent/regis)",
+      "ExchangeRate2_Label": "Curs de schimb",
+      "TransferFromAccount_Label": "Transfer din contul",
+      "TransferIntoAccount_Label": "Transfer in contul"
+    }
+  },
+  "Transfers": {
+    "Homepage": {
+      "HeaderText": "Transferuri",
+      "BusinessPartners": {
+        "HeaderText": "parteneri de afaceri",
+        "FilboPartnerInfoText": "transfer instant prin filbo",
+        "AssociatedAccountsLabelText": "conturi asociate",
+        "PartnerDetails": {
+          "HeaderText": "Detaliile partenerului",
+          "NameLabelText": "Name",
+          "AddNewAccountButtonText": "Adaugă cont nou",
+          "BeneficiaryIbanAccountCaptionText": "cont iban al beneficiarului",
+          "CurrencyCaptionText": "Valuă",
+          "NewPaymentButtonText": "Plată nouă"
+        }
+      },
+      "AddNewPartnerButtonText": "Adaugă partener nou",
+      "TransferBetweenMyAccounts": {
+        "ButtonTitleText": "Transfer intre conturile mele",
+        "ButtonDetailsText": "inclusiv schimb valutar "
+      }
+    },
+    "AddNewPartner": {
+      "HeaderText": "Adaugă partener de afaceri nou",
+      "Form": {
+        "Name": "Nume",
+        "Country": {
+          "Label": "Țară",
+          "PossibleValues": { "RO": "România" }
+        },
+        "Currency": "Valută",
+        "PartnerType": {
+          "Label": "Tipul partenerului",
+          "PossibleValues": {
+            "PJ": "Persoană juridică",
+            "PF": "Persoană fizică"
+          }
+        },
+        "CuiLabelText": "CUI-ul partenerului tău de afaceri",
+        "ValidationErrors": {
+          "Required": "Câmp obligatoriu",
+          "InvalidCui": "Invalid CUI"
+        }
+      },
+      "FilboPartner": {
+        "HeaderText": "Partenerul tău este client Filbo!",
+        "InstantTransfersInfoText": "Fondurile ajung instant",
+        "BeneficiaryCaptionText": "Beneficiar",
+        "BeneficiaryIbanAccountCaptionText": "cont iban al beneficiarului",
+        "Currency": "Valută",
+        "Buttons": {
+          "AddAnotherAccountText": "Adaugă alt cont",
+          "AssociateTheAccountText": "Asociază contul"
+        }
+      },
+      "AddNewAccount": {
+        "HeaderText": "Adaugă cont nou",
+        "PartnerNameLabelText": "Nume",
+        "Form": {
+          "IbanAccount": "Cont IBAN",
+          "Currency": {
+            "DisplayName": "Valută",
+            "PossibleValues": {
+              "RON": "RON"
+            }
+          },
+          "ValidationErrors": {
+            "Required": "Câmp obligatoriu",
+            "InvalidIban": "Invalid IBAN"
+          }
+        },
+        "AssociateTheAccountButtonText": "Asociază contul"
+      }
+    },
+    "Transfer_ButtonText": "Transferă",
+    "TransferBetweenMyAccounts_Label": "Transfer între conturile mele",
+    "TransferFromAccount_Label": "Transfer din contul",
+    "TransferToAccount_Label": "Transfer in contul",
+    "TransferAmount_Label": "Suma",
+    "ConfirmTransferBetweenMyAccounts_Label": "Confirmare transfer între conturile mele",
+    "TransactionValue_Label": "Valoarea tranzacției",
+    "ConfirmationQuestion": "Esti sigur că vrei să anulezi tranferul?",
+    "Details_Label": "Detalii",
+    "NewTransfer_Label": "Transfer nou",
+    "FundsArriveInstantly_Label": "Fondurile ajung instant",
+    "Pay_ButtonText": "Plătește",
+    "ConfirmTransfer_Label": "Confirmare transfer",
+    "MaxExecutionDate_Label": "Data maximă de execuție",
+    "MaxAmountValidationMessage": "Suma introdusă depășește suma din cont"
+  }
+}

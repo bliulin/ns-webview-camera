@@ -1,0 +1,38 @@
+@import "../../../app-variables";
+
+.nav-bar{
+  height: 60;
+  margin: 0 1 0 1;
+}
+
+.nav-item{
+  text-align: center;
+  width: 60;
+  color: $text-color-caption;
+
+  &.active .nav-item-lbl{
+    color: $primary;
+  }
+
+  &.active .nav-item-top{
+    visibility: visible;
+  }
+}
+
+.nav-item-top {
+  height:8;
+  background-color: $primary;
+  border-radius: 5;
+  margin-top: -4;
+  vertical-align: top;
+  visibility: collapsed;
+
+}
+
+.nav-item-lbl{
+  width: 60;
+  vertical-align: center;
+  font-size: $size-l - 2;
+  font-weight: $font-weight-light;
+  color: $text-color-caption;
+}

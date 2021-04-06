@@ -1,0 +1,19 @@
+<StackLayout>
+    <BackButton (backWasPressed)="goBack()"></BackButton>
+    <StackLayout class="m-20">
+        <Label class="h2" text="{{ 'Email.NewAccountLabel' | L }}"></Label>
+        <Label class="form-label" textWrap="true" text="{{ 'Email.Confirmation.Description' | L }} {{ userEmail }}"></Label>
+    </StackLayout>
+    <CodeValidation (codeWasEntered)="sendCode($event)" [resetNotification]="resendCodeAction$"></CodeValidation>
+    <!--<Label
+        class="resend-code-btn text-center"
+        [class.active]="count === 0"
+        text="{{ 'Email.Confirmation.ResendCodeLabelText' | L }}"
+        (tap)="onResendCodeTap()"
+    ></Label>
+    <Label
+        *ngIf="count > 0"
+        class="counter-info text-center"
+        text="{{ 'Email.Confirmation.TimerInfoLabelText' | L }} {{ timer$ | async }} {{ 'Email.Confirmation.Seconds' | L }}"
+    ></Label>-->
+</StackLayout>

@@ -1,0 +1,29 @@
+<StackLayout class="m-20">
+    <SVGImage *ngIf="!confirmationMode" class="icon_close" src="~/app/images/icon_close.svg" (tap)="close()"></SVGImage>
+    <GridLayout rows="auto, *, auto"> 
+        <StackLayout marginTop="30">
+            <Label class="title" class="h2" [text]="model.title" horizontalAlignment="center"></Label>
+            <Label
+                class="m-y-10"
+                text="{{ 'TermsAndConditions.UpdatedSubTitle' | L: (model.lastUpdate | date: 'dd.MM.yyyy') }}"
+                textWrap="true"
+                textAlignment="center"
+            ></Label>
+        </StackLayout>
+        <ScrollView row="1" orientation="vertical">
+            <HtmlView html="{{ model.content }}"></HtmlView>
+        </ScrollView>
+        <StackLayout row="2" *ngIf="confirmationMode">
+            <Button class="btn btn-primary m-y-20" text="{{ 'TermsAndConditions.Accept_ButtonLabel' | L }}" (tap)="onContinueTapped()"></Button>
+            <Label
+                class="underlined"
+                text="{{ 'TermsAndConditions.CloseApp' | L }}"
+                horizontalAlignment="center"
+                textWrap="true"
+                textAlignment="center"
+                marginTop="10"
+                (tap)="onCloseAppTapped()"
+            ></Label>
+        </StackLayout>
+    </GridLayout>
+</StackLayout>

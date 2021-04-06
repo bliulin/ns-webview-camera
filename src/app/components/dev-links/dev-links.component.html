@@ -1,0 +1,30 @@
+<ActionBar>
+    <NavigationButton (tap)="onDrawerButtonTap()" icon="res://menu" ios:visibility="collapsed"></NavigationButton>
+    <ActionItem (tap)="onDrawerButtonTap()" android:visibility="collapsed" icon="res://navigation/menu" ios.position="left"> </ActionItem>
+    <Label class="action-bar-title" text="Home"></Label>
+</ActionBar>
+<ScrollView>
+    <StackLayout>
+        <Button [nsRouterLink]="['/usages/']" class="button btn-active" text="Chekbox & radio buttons usage" ></Button>
+        <Button class="button btn-active" text="Confirmation dialog" (tap)="onConfirmationDialog()"></Button>
+        <Button class="button button-dismiss" text="Confirmation dialog" (tap)="onConfirmationDialog()"></Button>
+        <Button class="button button-dismiss" text="Confirmation dialog vertical" (tap)="onConfirmationDialogVertical()"></Button>
+        <Button [nsRouterLink]="['/emailreg/']" pageTransition="slide" class="button button-dismiss" text="Email Registration"></Button>
+        <Button [nsRouterLink]="['/phonereg']" class="button button-dismiss" text="Phone Registration"></Button>
+        <Button (tap)="lock()" text="Lock"></Button>
+        <Button [nsRouterLink]="['/login']" class="button button-dismiss" text="Login"></Button>
+        <Button (tap)="onLogout()" class="button button-dismiss" text="Logout"></Button>
+        <Button (tap)="onTestPrivateApi()" class="button button-dismiss" text="Test private API"></Button>
+        <Button [nsRouterLink]="['/push-notifications']" class="button button-dismiss" text="Demo push notifications"></Button>
+        <Button [nsRouterLink]="['/profile/settings']" class="button button-dismiss" text="Profile"></Button>
+        <Button [nsRouterLink]="['/credit-request']" class="button button-dismiss" text="Credit request"></Button>
+        <Button [nsRouterLink]="['/credit-request/questionnaire']" class="button button-dismiss" text="Dynamic form"></Button>
+
+        <Button [nsRouterLink]="['/home']" class="button button-dismiss" text="Home"></Button>
+        <Button (tap)="onTapCreditOverview()" class="button button-dismiss" text="Credit overview"></Button>
+        <Button [nsRouterLink]="['/upload-documents']" class="button button-dismiss" text="Upload documents"></Button>
+        <Button [nsRouterLink]="['/credit-request/price-wheel']" class="button button-dismiss" text="Price wheel"></Button>
+        <Button [nsRouterLink]="['/theme']" class="button button-dismiss" text="Theme"></Button>
+        <Button [nsRouterLink]="['/credit-request/wizard/initiate']" class="button button-dismiss" text="Initiate request"></Button>
+    </StackLayout>
+</ScrollView>

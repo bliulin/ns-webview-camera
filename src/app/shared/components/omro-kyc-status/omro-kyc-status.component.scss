@@ -1,0 +1,41 @@
+@import "~/styles/_omro-main-colors.scss";
+@import "~/styles/mixins.scss";
+
+.container {
+  background-color: $omro-white;
+  @include circle(25);
+  .status-container {
+    @include circle(20);
+    &.up-to-date {
+      background-color: $omro-green;
+    }
+    &.update-required {
+      background-color: $omro-orange;
+    }
+    &.update-required.profile {
+      background-color: $omro-rose;
+    }
+  }
+}
+
+@keyframes statusAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.statusAnimation {
+  animation-name: statusAnimation;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+}

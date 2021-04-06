@@ -1,0 +1,12 @@
+<DockLayout class="m-20">
+    <StackLayout dock="top">
+        <SVGImage (tap)="close()" *ngIf="model.showCloseButton" class="icon_close"
+                  src="~/app/images/icon_close.svg"></SVGImage>
+        <Label text="{{model.title}}" class="h2" horizontalAlignment="center" textAlignment="center" textWrap="true" marginTop="30"></Label>
+    </StackLayout>
+    <Button (tap)="onContinueTapped()" class="btn btn-primary m-y-20" dock="bottom"
+            text="{{ model.buttonCaption }}"></Button>
+    <ScrollView orientation="vertical" row="1">
+        <Label [text]="model.body" class="h3" textWrap="true" horizontalAlignment="center" textAlignment="center" marginTop="30"></Label>
+    </ScrollView>
+</DockLayout>

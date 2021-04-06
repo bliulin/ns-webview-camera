@@ -1,0 +1,12 @@
+<StackLayout marginTop="30" marginBottom="10">
+    <Label class="font-label" text="{{ field.label }}"></Label>
+    <StackLayout marginTop="5" (tap)="onTap()" *ngIf="!isReadOnly; else readonly" class="dropdown-editor" orientation="horizontal">
+        <GridLayout columns="*,20">
+            <Label [class.placeholder]="isPlaceHolder" [class.selected]="!isPlaceHolder" [text]="dateLabel" class="inner-text" col="0"></Label>
+            <SVGImage [src]="'~/app/images/calendar.svg'" height="24" horizontalAlignment="right" width="24"></SVGImage>
+        </GridLayout>
+    </StackLayout>
+    <ng-template #readonly>
+        <Label class="readonly" text="{{ field.submittedValue | date: 'dd-MM-yyyy' }}" textWrap="true"></Label>
+    </ng-template>
+</StackLayout>

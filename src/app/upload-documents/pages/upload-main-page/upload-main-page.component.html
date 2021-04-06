@@ -1,0 +1,87 @@
+<DockLayout>
+    <StackLayout dock="top">
+        <BackButton (backWasPressed)="goBack()" *ngIf="source === Feature.CompanySetup" text=""></BackButton>
+        <ng-container *ngIf="source === Feature.ProductRequest">
+            <omro-credit-request-progress (closePressed)="goBack()"></omro-credit-request-progress>
+        </ng-container>
+    </StackLayout>
+    <ScrollView>
+        <StackLayout *ngIf="dataLoaded" class="page">
+            <GridLayout [elevation]="6" cornerRadius="15" shadow>
+                <StackLayout class="details-card">
+                    <StackLayout class="m-20">
+                        <Label [text]="model.title" class="h2" textWrap="true"></Label>
+                        <GridLayout class="m-y-20" columns="*, auto" rows="auto">
+                            <Label [text]="model.details" lineHeight="10" textWrap="true" verticalAlignment="center"></Label>
+                            <img col="1" height="100" horizontalAlignment="center" marginLeft="10" src="res://document" width="110" />
+                        </GridLayout>
+                    </StackLayout>
+                </StackLayout>
+            </GridLayout>
+            <StackLayout class="actions-section">
+                <Label [text]="'ProductRequest.DocumentsToSend' | L" class="title-f-regular" marginBottom="10"></Label>
+                <ng-container *ngFor="let item of uploadFileSetViewModels">
+                    <omro-card>
+                        <StackLayout (tap)="onAddDocumentsTapped(item)" class="m-10">
+                            <GridLayout columns="auto,*,100" marginLeft="10" rows="auto">
+                                <SVGImage [src]="getImagePath(item)" height="50" width="68"></SVGImage>
+                                <FlexboxLayout class="name-details-section" col="1" marginLeft="10">
+                                    <Label [text]="item.setName | uppercase" className="document-title" textWrap="true"></Label>
+                                    <!--
+                                    <StackLayout>
+                                        <Label [text]="item.details" className="h3" textWrap="true"></Label>
+                                    </StackLayout>
+                                    -->
+                                </FlexboxLayout>
+                                <StackLayout col="2" verticalAlignment="center">
+                                    <ng-container [ngSwitch]="item.uploadSetState">
+                                        <StackLayout height="100%">
+                                            <Label
+                                                *ngSwitchCase="UploadFileSetState.New"
+                                                className="fas m-20 next-icon"
+                                                fontSize="18"
+                                                horizontalAlignment="right"
+                                                text="&#xf054;"
+                                            ></Label>
+                                        </StackLayout>
+                                        <Button
+                                            (tap)="onEditDocumentsTapped(item)"
+                                            *ngSwitchCase="UploadFileSetState.Editable"
+                                            [text]="'Common.Change' | L"
+                                            className="btn btn-secondary small card-btn"
+                                        ></Button>
+                                        <Button
+                                            (tap)="onDownloadTapped(item)"
+                                            *ngSwitchCase="UploadFileSetState.Readonly"
+                                            [text]="'Common.Download' | L"
+                                            className="btn btn-secondary small card-btn"
+                                        ></Button>
+                                    </ng-container>
+                                </StackLayout>
+                            </GridLayout>
+                        </StackLayout>
+                    </omro-card>
+                </ng-container>
+            </StackLayout>
+            <Button
+                class="btn btn-primary m-10"
+                width="50%"
+                marginBottom="30"
+                horizontalAlignment="right"
+                *ngIf="source === Feature.ProductRequest"
+                [text]="'ProductRequest.Continue' | L"
+                [isEnabled]="isContinueButtonEnabled()"
+                (tap)="showConfirmation()"
+            >
+            </Button>
+            <Button
+                class="btn btn-primary m-10"
+                marginBottom="30"
+                *ngIf="source === Feature.CompanySetup"
+                [text]="'Common.Close' | L"
+                (tap)="onContinueButtonTapped()"
+            >
+            </Button>
+        </StackLayout>
+    </ScrollView>
+</DockLayout>

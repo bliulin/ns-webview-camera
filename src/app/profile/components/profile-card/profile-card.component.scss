@@ -1,0 +1,24 @@
+@import '~/styles/_sizes.scss';
+@import '~/styles/_omro-main-colors.scss';
+@import '~/styles/mixins.scss';
+@import '~/_app-variables.scss';
+
+.profile-card {
+    background-color: $omro-white;
+    border-radius: 8;
+    .profile-card-content {
+      margin: 0, 0, 20, 20;
+    }
+    .profile-image {
+      background-color: $omro-gray-light;
+      @include circle(65);
+      .user-initials {
+        font-size: $size-s + $size-m;
+        font-weight: bold;
+      }
+    }
+    .user-displayname {
+      font-size: $size-m + $size-xxs;
+      font-weight: $font-weight-medium;
+    }
+  }

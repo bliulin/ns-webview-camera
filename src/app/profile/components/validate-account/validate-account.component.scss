@@ -1,0 +1,22 @@
+@import '~/styles/mixins.scss';
+
+.page {
+  .icon-close-container {
+    width: 40;
+    height: 40;
+    horizontal-align: right;
+    vertical-align: center;
+    .icon-close {
+      width: 20;
+      height: 20;
+    }
+  }
+  .main-container {
+    margin: 20;
+    @include flex-design(column, space-between);
+    .action-btn {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}

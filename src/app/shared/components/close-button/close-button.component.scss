@@ -1,0 +1,9 @@
+@import '~/styles/_omro-main-colors.scss';
+@import '~/styles/mixins.scss';
+
+.close-button-container {
+  .close_icon {
+    margin: 20 20 0 20;
+    @include square(20);
+  }
+}

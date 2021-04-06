@@ -1,0 +1,23 @@
+<StackLayout>
+    <StackLayout class="bottom-sheet-slider"></StackLayout>
+    <StackLayout class="bottom-sheet-layout">
+        <Label class="h3 text-center m-t-20" text="{{ 'EWallet.Configuration.BlockCard.ModalTitle' | L }}"></Label>
+        <Label class="h2 text-center m-t-20" text="{{ 'EWallet.Configuration.BlockCard.ModalDetails' | L }}" textWrap="true"></Label>
+
+        <StackLayout class="m-20">
+            <omro-radio-buttons-select [possibleValues]="reasons" [formControl]="selectedReasonFormControl"></omro-radio-buttons-select>
+        </StackLayout>
+
+        <StackLayout class="m-y-30" ios:marginBottom="70" android:marginBottom="40">
+            <GridLayout class="m-x-10" columns="*,*" height="60">
+                <Button
+                    class="btn btn-error x-large"
+                    [text]="'EWallet.Configuration.BlockCard.BlockActionButtonText' | L"
+                    [isEnabled]="selectedReasonFormControl.valid"
+                    (tap)="onBlockCardButtonTap()"
+                ></Button>
+                <Button class="btn btn-transparent x-large" [text]="'Common.Back' | L" col="1" (tap)="back()"></Button>
+            </GridLayout>
+        </StackLayout>
+    </StackLayout>
+</StackLayout>

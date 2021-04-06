@@ -1,0 +1,59 @@
+@import '~/styles/_omro-main-colors.scss';
+@import '~/styles/_sizes.scss';
+
+.doc {
+  background-color: $omro-white;
+  border-radius: 4;
+  margin: 2;
+  border-width: 1;
+  border-color: $omro-gray;
+  height: 121;
+  width: 32.3%;
+}
+
+.doc-card-footer1-lbl {
+  padding-left: 10;
+  padding-right: 10;
+}
+
+.doc-card-footer2-lbl {
+  font-size: 12;
+  padding-left: 10;
+  padding-right: 10;
+}
+
+.plus {
+  background-color: #001C4A;
+  border-radius: 38;
+  height: 60;
+  width: 60;
+}
+
+.plus-lbl {
+  color: $omro-white;
+  horizontal-align: center;
+  font-size: 30;
+}
+
+.add-files-lbl {
+  horizontal-align: center;
+  color: $omro-sky-dark;
+  font-size: $size-m - 4;
+  font-weight: bold;
+}
+
+.selected {
+  border-width: 2;
+  border-color:$omro-sky-dark;
+}
+
+.gradient {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(255,255,255,1));
+}
+
+.retry {
+  font-weight: bold;
+  color:$omro-red-dark;
+  margin-left: 5;
+  font-size: 12;
+}

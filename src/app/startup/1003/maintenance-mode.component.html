@@ -1,0 +1,13 @@
+<GridLayout class="m-20" rows="*, auto, auto">
+    <StackLayout>
+        <!-- <Image src="res://flameremoteworking" stretch="none" horizontalAlignment="center"></Image> -->
+    </StackLayout>
+    <StackLayout row="1">
+        <Label class="h2 text-center" [text]="'AppStatus.MaintenanceTitle' | L"></Label>
+        <Label class="h3 text-center description" [text]="'AppStatus.MaintenanceDescription' | L" textWrap="true"></Label>
+    </StackLayout>
+
+    <StackLayout row="2" marginTop="10%">
+        <Label [text]="'AppStatus.CloseApp' | L" class="lbl-action text-center m-y-20" (tap)="onCloseAppTapped()"></Label>
+    </StackLayout>
+</GridLayout>

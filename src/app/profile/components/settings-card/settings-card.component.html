@@ -1,0 +1,36 @@
+<StackLayout>
+    <Label class="m-20 title" [text]="'Profile.Settings.SectionTitle' | L"></Label>
+    <StackLayout class="setting-container">
+        <ng-container *ngFor="let item of settings; let i = index">
+            <StackLayout *ngIf="item.isAvaible" class="list-group settings">
+                <FlexboxLayout class="settings-section-row" [class.last-child]="isLastChild(i)" (tap)="onSettingTap(item.action)">
+                    <StackLayout orientation="horizontal" marginLeft="20">
+                        <Label [text]="item.iconCode" class="ff section-icon" verticalAlignment="center"></Label>
+                        <Label [text]="item.name" class="list-group-item section-name"></Label>
+                    </StackLayout>
+                    <StackLayout class="list-group-item">
+                        <ng-container [ngSwitch]="item.description">
+                            <container *ngSwitchCase="'biometrics'">
+                                <Switch
+                                    #switch
+                                    [checked]="biometricsEnabled"
+                                    (checkedChange)="onCheckedChange($event)"
+                                    class="list-group-item biometric-switch"
+                                    [class.disabled]="!biometricsEnabled"
+                                    android:backgroundColor="rgba(136, 188, 8, 0.5)"
+                                    ios:backgroundColor="rgba(136, 188, 8, 0.4)"
+                                    android:offBackgroundColor="lightgray"
+                                    ios:offBackgroundColor="white"
+                                ></Switch>
+                            </container>
+                            <container *ngSwitchDefault>
+                                <Label [text]="item.description" class="section-description"></Label>
+                            </container>
+                        </ng-container>
+                    </StackLayout>
+                </FlexboxLayout>
+                <StackLayout class="hr"></StackLayout>
+            </StackLayout>
+        </ng-container>
+    </StackLayout>
+</StackLayout>

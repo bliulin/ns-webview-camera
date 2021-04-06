@@ -1,0 +1,13 @@
+<GridLayout class="m-y-20" rows="auto, auto" columns="*,auto">
+    <Label class="h3" [text]="title" textWrap="true"></Label>
+    <StackLayout col="1" marginLeft="30">
+        <Switch
+            [formControl]="checked"
+            android:backgroundColor="rgba(136, 188, 8, 0.7)"
+            ios:backgroundColor="rgba(136, 188, 8, 0.2)"
+            android:offBackgroundColor="lightgray"
+            ios:offBackgroundColor="white"
+        ></Switch>
+    </StackLayout>
+    <Label row="1" class="caption" [text]="description | uppercase" textWrap="true"></Label>
+</GridLayout>

@@ -1,0 +1,118 @@
+{
+  "nativescript": {
+    "id": "omro.filbo.mobile",
+    "tns-ios": {
+      "version": "6.5.0"
+    },
+    "tns-android": {
+      "version": "6.5.0"
+    }
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupJest.ts"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "@nativescript/core",
+      "<rootDir>/src",
+      "<rootDir>/src/shared"
+    ],
+    "modulePaths": [
+      "<rootDir>/src"
+    ],
+    "automock": true
+  },
+  "description": "OMRO DigitalApp mobile application",
+  "license": "SEE LICENSE IN <your-license-filename>",
+  "repository": "<fill-your-repository-here>",
+  "scripts": {
+    "lint": "tslint \"src/**/*.ts\"",
+    "ios": "tns run ios --no-hmr",
+    "android": "cd plugins/nativescript-fingerprint-auth/src/ && tns install && cd ../../.. && tns run android --no-hmr",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --runInBand",
+    "test:coverage": "jest --coverage",
+    "debug-ios": "tns debug ios --debug-brk --emulator",
+    "debug-android": "tns debug android --debug-brk --emulator",
+    "test-android-debug": "tns test android --watch --debug-brk",
+    "test-ios-debug": "tns test ios --watch --debug-brk"
+  },
+  "dependencies": {
+    "@angular/animations": "~8.2.0",
+    "@angular/common": "~8.2.0",
+    "@angular/compiler": "~8.2.0",
+    "@angular/core": "~8.2.0",
+    "@angular/forms": "~8.2.0",
+    "@angular/platform-browser": "~8.2.0",
+    "@angular/platform-browser-dynamic": "~8.2.0",
+    "@angular/router": "~8.2.0",
+    "@nota/nativescript-webview-ext": "^7.0.4",
+    "@teammaestro/nativescript-svg": "^1.0.1",
+    "crypto-js": "^3.1.9-1",
+    "guid-typescript": "^1.0.9",
+    "iban": "^0.0.12",
+    "moment": "^2.24.0",
+    "nativescript-angular": "^8.20.3",
+    "nativescript-background-http": "^4.2.1",
+    "nativescript-canvas": "^2.1.23",
+    "nativescript-carousel": "^6.1.1",
+    "nativescript-clipboard": "1.2.0",
+    "nativescript-download-progress": "^1.3.0",
+    "nativescript-exit": "^1.0.1",
+    "nativescript-feedback": "^1.3.12",
+    "nativescript-fingerprint-auth": "file:plugins/nativescript-fingerprint-auth/src",
+    "nativescript-iqkeyboardmanager": "^1.5.1",
+    "nativescript-localize": "^4.2.1",
+    "nativescript-material-bottomsheet": "3.2.19",
+    "nativescript-material-cardview": "^3.1.4",
+    "nativescript-mediafilepicker": "^2.0.18",
+    "nativescript-ng-shadow": "^2.1.0",
+    "nativescript-ngx-fonticon": "^5.0.2",
+    "nativescript-pdfview-ng": "^1.2.0",
+    "nativescript-permissions": "^1.3.8",
+    "nativescript-plugin-firebase": "^10.3.3",
+    "nativescript-secure-storage": "^2.6.0",
+    "nativescript-simple-filepicker": "1.1.1",
+    "nativescript-theme-core": "~1.0.6",
+    "nativescript-ui-calendar": "^6.0.0",
+    "nativescript-ui-gauge": "^6.0.0",
+    "nativescript-ui-highcharts": "^1.2.0",
+    "nativescript-ui-sidedrawer": "^8.0.0",
+    "nativescript-unit-test-runner": "^0.7.0",
+    "nativescript-urlhandler": "^1.3.0",
+    "nativescript-webview-interface": "^1.4.3",
+    "reflect-metadata": "~0.1.12",
+    "rxjs": "^6.4.0",
+    "tns-core-modules": "~6.5.0",
+    "zone.js": "~0.9.1"
+  },
+  "devDependencies": {
+    "@angular-builders/jest": "^9.0.0",
+    "@angular/cli": "^8.3.20",
+    "@angular/compiler-cli": "8.2.0",
+    "@nativescript/schematics": "^0.7.3",
+    "@ngtools/webpack": "8.2.0",
+    "@types/jasmine": "^3.4.4",
+    "@types/jest": "^25.1.4",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "codelyzer": "~4.5.0",
+    "jest": "25.1.0",
+    "jest-diff": "25.1.0",
+    "karma": "4.4.1",
+    "karma-jasmine": "2.0.1",
+    "karma-nativescript-launcher": "0.4.0",
+    "karma-webpack": "3.0.5",
+    "nativescript-dev-webpack": "~1.5.1",
+    "node-sass": "^4.7.1",
+    "pretty-format": "25.1.0",
+    "tns-android": "6.5.0",
+    "tns-ios": "6.5.0",
+    "tslint": "~5.19.0",
+    "typescript": "~3.5.3"
+  },
+  "gitHead": "1964ea9e8ca1a0518e0d6370781eedcf6c23db42",
+  "readme": "OMRO DigitalApp"
+}

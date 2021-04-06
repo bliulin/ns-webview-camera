@@ -1,0 +1,15 @@
+<StackLayout>
+    <StackLayout class="bottom-sheet-slider"></StackLayout>
+    <StackLayout class="bottom-sheet-layout">
+        <Label class="h3 text-center m-t-20" text="PIN"></Label>
+        <StackLayout class="m-y-20" ios:marginBottom="40">
+            <StackLayout class="m-x-20 pin-container">
+                <Label class="h2 m-y-10 text-center" text="{{pin}}"></Label>
+            </StackLayout>
+
+            <GridLayout class="m-20 text-center" height="50">
+                <Label text="{{'EWallet.CardDetails.WillDisappearIn' | L}} {{seconds}} {{'Common.Seconds' | L | lowercase}}"></Label>
+            </GridLayout>
+        </StackLayout>
+    </StackLayout>
+</StackLayout>

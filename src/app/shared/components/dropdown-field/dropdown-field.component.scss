@@ -1,0 +1,42 @@
+/* Add mobile styles for the component here.  */
+@import '../../../../app-variables';
+@import '~/styles/_omro-main-colors.scss';
+
+.dropdown-editor {
+  background-color: $omro-white;
+  border-radius: 5;
+  height: 50;
+  border-width: 1;
+  border-radius: 10;
+  border-color: $omro-gray;
+
+  &.selected {
+    border-width: 1;
+    border-color: $mtextfield-color-border;
+  }
+  &.invalid {
+    border-width: 1;
+    border-color: $error-dark;
+  }
+  .selectedItem {
+    color: $text-color;
+    margin: 0 10 0 20;
+    vertical-align: center;
+  }
+
+  .caret {
+    font-size: 28;
+    font-weight: bold;
+    vertical-align: center;
+    horizontal-align: left;
+    color: $omro-gray;
+  }
+
+  .placeholder {
+    color: $omro-gray;
+  }
+}
+
+.readonly {
+  color: $omro-gray-medium;
+}

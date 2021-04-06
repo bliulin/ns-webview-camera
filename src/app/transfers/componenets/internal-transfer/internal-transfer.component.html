@@ -1,0 +1,66 @@
+<ScrollView>
+    <DockLayout *ngIf="formGroup" [formGroup]="formGroup" class="page">
+        <StackLayout (tap)="onClosed()" class="close-button-container" dock="top" horizontalAlignment="right">
+            <SVGImage class="close_icon" src="~/app/images/icon_close.svg"></SVGImage>
+        </StackLayout>
+        <GridLayout dock="bottom" rows="auto" columns="*, *" marginBottom="30">
+            <Button
+                    (tap)="onCancelButtonTapped()"
+                    [text]="'Common.Quit' | L"
+                    class="btn btn-secondary x-large"
+            ></Button>
+            <Button
+                    (tap)="onTransferTapped()"
+                    [isEnabled]="formGroup.valid"
+                    [text]="'Transfers.Transfer_ButtonText' | L"
+                    class="btn btn-primary x-large"
+                    col="1"
+            ></Button>
+        </GridLayout>
+        <StackLayout class="m-20">
+            <Label [text]="'Transfers.TransferBetweenMyAccounts_Label' | L" class="h2" textWrap="true"></Label>
+            <StackLayout marginTop="30">
+                <omro-dropdown-field
+                        [field]="srcAccount"
+                        [formControlName]="srcAccount.fieldId"
+                        [modalDialogService]="modalDialogService"
+                        [placeholder]="srcAccount.textValue"
+                        [viewContainer]="vcRef"
+                >
+                </omro-dropdown-field>
+                <ValidationError
+                        [errorMessage]="getErrorMessage('srcAccount')"
+                        [show]="hasError('srcAccount')"
+                ></ValidationError>
+            </StackLayout>
+            <StackLayout>
+                <omro-dropdown-field
+                        [field]="destAccount"
+                        [formControlName]="destAccount.fieldId"
+                        [modalDialogService]="modalDialogService"
+                        [placeholder]="srcAccount.textValue"
+                        [viewContainer]="vcRef"
+                >
+                </omro-dropdown-field>
+                <ValidationError
+                        [errorMessage]="getErrorMessage('destAccount')"
+                        [show]="hasError('destAccount')"
+                ></ValidationError>
+            </StackLayout>
+            <StackLayout>
+                <omro-text-field
+                        [class.invalid]="hasError(amount.fieldId)"
+                        [formControlName]="amount.fieldId"
+                        keyboardType="number"
+                        [label]="amount.label"
+                        [placeholder]="amount.textValue"
+                        class="mtextfield"
+                ></omro-text-field>
+                <ValidationError
+                        [errorMessage]="getErrorMessage('amount')"
+                        [show]="hasError('amount')"
+                ></ValidationError>
+            </StackLayout>
+        </StackLayout>
+    </DockLayout>
+</ScrollView>

@@ -1,0 +1,19 @@
+<StackLayout>
+    <BackButton (backWasPressed)="goBack()"></BackButton>
+    <StackLayout>
+        <Label class="h2 m-20" text="{{ 'PhoneRegistration.SecondStep.Hello' | L }}, {{ user.firstName }}"></Label>
+        <Label class="m-20" textWrap="true" text="{{ 'PhoneRegistration.SecondStep.Description' | L }} {{ user.countryPrefix }}{{ user.phoneNumber }}"></Label>
+    </StackLayout>
+    <CodeValidation (codeWasEntered)="sendCode($event)" [codeResent]="resendCodeAction$"></CodeValidation>
+    <!--<Label
+        class="resend-code-btn text-center"
+        [class.active]="count === 0"
+        text="{{ 'PhoneRegistration.SecondStep.ResendCode' | L }}"
+        (tap)="onResendCodeTap()"
+    ></Label>
+    <Label
+        *ngIf="count > 0"
+        class="counter-info"
+        text="{{ 'PhoneRegistration.SecondStep.YouCanResendCode' | L }} {{ timer$ | async }} {{ 'PhoneRegistration.SecondStep.Seconds' | L }}"
+    ></Label>-->
+</StackLayout>

@@ -1,0 +1,85 @@
+<StackLayout>
+  <omro-close-button (tapClose)="goBack()" class="pull-right" ></omro-close-button>
+  <ScrollView height="100%">
+    <FlexboxLayout flexDirection="column" justifyContent="space-around">
+      <StackLayout
+        class="main-container"
+        *ngIf="vm$ | async as vm"
+        [formGroup]="form"
+      >
+        <Label class="h2" [text]="vm.title" textWrap="true"></Label>
+        <Label>
+          <FormattedString>
+            <Span
+              class="h1"
+              [text]="form.controls.requestedAmount.value"
+            ></Span>
+            <Span [text]="vm.currencyDisplayName" class="h2 currency"></Span>
+          </FormattedString>
+        </Label>
+        <GridLayout rows="auto" columns="auto, *, auto">
+          <Label
+            class="h4"
+            col="0"
+            text="{{ vm.minAmount | roundOneThousand }}k"
+            verticalAlignment="center"
+          ></Label>
+          <omro-price-wheel
+            col="1"
+            height="100"
+            class="price-wheel m-10"
+            barColor="#54C0EE"
+            tickColor="#B5B7C7"
+            [minValue]="vm.minAmount"
+            [maxValue]="vm.maxAmount"
+            [step]="100"
+            formControlName="requestedAmount"
+          ></omro-price-wheel>
+          <Label
+            col="2"
+            class="h4"
+            verticalAlignment="center"
+            text="{{ vm.maxAmount | roundOneThousand }}k"
+          ></Label>
+        </GridLayout>
+
+        <!--
+        <omro-text-field
+          label="{{ 'ProductRequest.Initiate.LoanDestinationLabel' | L }}"
+          [placeholder]="vm.destinationPlaceholder"
+          [showCounter]="true"
+          returnType="go"
+          (returnPress)="onNextTap()"
+          maxLength="23"
+          formControlName="purpose"
+        ></omro-text-field>
+        -->
+
+        <StackLayout>
+          <Label
+            class="h3"
+            text="{{ 'ProductRequest.Initiate.LoanPeriodLabel' | L }}"
+          ></Label>
+          <ScrollView
+            orientation="horizontal"
+            scrollBarIndicatorVisible="false"
+          >
+            <omro-carousel-select
+              [items]="vm.periods"
+              [valueFormatter]="monthFormatter"
+              formControlName="requestedDuration"
+            ></omro-carousel-select>
+          </ScrollView>
+        </StackLayout>
+      </StackLayout>
+      <StackLayout>
+        <Button
+          class="btn btn-primary action-next"
+          text="Continuă"
+          [isEnabled]="form.valid"
+          (tap)="onNextTap()"
+        ></Button>
+      </StackLayout>
+    </FlexboxLayout>
+  </ScrollView>
+</StackLayout>

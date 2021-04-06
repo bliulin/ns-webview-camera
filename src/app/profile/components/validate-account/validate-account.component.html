@@ -1,0 +1,25 @@
+<!-- <StackLayout class="page">
+    <StackLayout class="icon-close-container" (tap)="close()">
+        <SVGImage class="icon-close" src="~/app/images/icon_close.svg"></SVGImage>
+    </StackLayout>
+    <GridLayout class="main-container" rows="auto, *, *, auto">
+        <Label class="h2" [text]="'Profile.ValidateAccount.Title' | L" textWrap="true"></Label>
+        <StackLayout row="1" verticalAlignment="center">
+            <SVGImage [src]="'~/app/images/new_loan_resolution_manual.svg'" width="80%" height="100%"></SVGImage>
+        </StackLayout>
+        <StackLayout row="2" verticalAlignment="center">
+            <Label class="title" [text]="'Profile.ValidateAccount.Details' | L" textWrap="true"></Label>
+        </StackLayout>
+        <Button
+                class="btn btn-primary x-large action-btn"
+                row="3"
+                [text]="'Common.Continue' | L"
+                (tap)="onButtonTap()"
+        ></Button>
+    </GridLayout>
+</StackLayout> -->
+
+<ScrollView>
+    <omro-informative-page [vm]="vm" (actionButtonTap)="onButtonTap()" (pageClosed)="close()">
+    </omro-informative-page>
+</ScrollView>

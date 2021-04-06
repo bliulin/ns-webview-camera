@@ -1,0 +1,22 @@
+@mixin flex-design($direction, $justify, $align:flex-start) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin border-top-radius($r: 8) {
+    border-top-left-radius: $r;
+    border-top-right-radius: $r;
+}
+
+@mixin circle($size) {
+    border-radius: 100%;
+    width: $size;
+    height: $size;
+}
+
+@mixin square($size) {
+    height: $size;
+    width: $size;
+}

@@ -1,0 +1,111 @@
+<ScrollView>
+    <DockLayout *ngIf="company$ | async as company">
+        <BackButton (backWasPressed)="goBack()" dock="top"></BackButton>
+        <ng-container *ngIf="currentCompany$ | async as currentCompany">
+            <StackLayout class="dock-container" *ngIf="canBeRemoved(company, currentCompany?.customer.customerId)" dock="bottom">
+                <Button
+                    class="btn btn-error"
+                    fontWeight="500"
+                    text="{{ 'Profile.Company.Remove' | L }}"
+                    (tap)="onRemoveCompanyTap(company.customer.customerId)"
+                ></Button>
+            </StackLayout>
+        </ng-container>
+        <StackLayout class="main-container">
+            <StackLayout shadow [elevation]="6" cornerRadius="15">
+                <StackLayout class="main-company-container">
+                    <StackLayout class="m-20" verticalAlignment="top">
+                        <Label class="h2" text="{{ 'Profile.Company.DetailsHeaderText' | L }}"></Label>
+                        <StackLayout class="company-card">
+                            <GridLayout rows="auto, auto, auto" columns="auto, *">
+                                <GridLayout columns="auto, auto" marginRight="10">
+                                    <StackLayout colSpan="2" class="company-image" verticalAlignment="top">
+                                        <img src="res://building" width="30" height="30" horizontalAlignment="left" />
+                                    </StackLayout>
+                                    <StackLayout col="1" verticalAlignment="bottom" horizontalAlignment="right">
+                                        <omro-kyc-status [isKYCDataAvailable]="company?.customer.isKYCDone"></omro-kyc-status>
+                                    </StackLayout>
+                                </GridLayout>
+                                <Label class="title" col="1" maxLines="4" textWrap="true" [text]="company.customer.customerName | uppercase"></Label>
+                                <Label
+                                    class="h4 info info-txt"
+                                    row="1"
+                                    col="1"
+                                    textWrap="true"
+                                    *ngIf="company?.customer.actionText"
+                                    [text]="company.customer.actionText"
+                                ></Label>
+                            </GridLayout>
+                            <StackLayout class="hr"></StackLayout>
+                        </StackLayout>
+                        <StackLayout>
+                            <GridLayout rows="auto, auto">
+                                <FlexboxLayout class="company-main-details" flexWrap="wrap" justifyContent="space-between">
+                                    <omro-info-field [caption]="'Profile.Company.TradeRegisterLabelText' | L">
+                                        <Label class="title" [text]="company.customer.registrationNumber"> </Label>
+                                    </omro-info-field>
+                                    <omro-info-field [caption]="'Profile.Company.CUILabelText' | L">
+                                        <Label class="title" [text]="company.customer.customerNUID"> </Label>
+                                    </omro-info-field>
+                                    <omro-info-field [caption]="'Profile.Company.RegistrationLabelText' | L">
+                                        <Label class="title" [text]="company.customer.registrationDate | date: 'dd.MM.yyyy'"> </Label>
+                                    </omro-info-field>
+                                    <omro-info-field [caption]="'Profile.Company.MainAdressLabelText' | L">
+                                        <Label class="title" [text]="company.customer.mainAddress" textWrap="true"> </Label>
+                                    </omro-info-field>
+                                </FlexboxLayout>
+                                <omro-info-field row="1" [caption]="'Profile.Company.CAENLabelText' | L">
+                                    <Label class="title" [text]="company.customer.caenText" textWrap="true"></Label>
+                                </omro-info-field>
+                            </GridLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <Label
+                *ngIf="company.customer.kycFileRepository || company.customer.kycDynamicForm"
+                class="title company-actions-section"
+                text="{{ 'Profile.Company.ActionsLabelText' | L }}"
+            ></Label>
+
+            <StackLayout class="company-actions-container">
+                <MDCardView *ngIf="company.customer.kycFileRepository" class="company-fileset-card" rippleColor="lightgray" elevation="2"
+                            (tap)="openDocumentsUpload(company.customer.kycFileRepository.fileRepositoryId)">
+                    <GridLayout class="m-10" columns="auto, *, auto">
+                        <GridLayout col="0" columns="auto, auto" marginRight="10">
+                            <StackLayout colSpan="2" width="60" height="60" verticalAlignment="top">
+                                <SVGImage [src]="dynamicFormImageSrc" height="48" width="32"></SVGImage>
+                            </StackLayout>
+                            <StackLayout col="1" verticalAlignment="bottom" horizontalAlignment="right">
+                                <omro-kyc-status [isKYCDataAvailable]="companyViewModel.kycUploadDocumentsLoaded"></omro-kyc-status>
+                            </StackLayout>
+                        </GridLayout>
+                        <StackLayout col="1" verticalAlignment="center">
+                            <Label class="h3" text="{{'Profile.Company.UploadDocumentMainText' | L}}"></Label>
+                            <Label class="caption" text="{{'Profile.Company.UploadDocumentSecondaryText' | L}}"></Label>
+                        </StackLayout>
+                        <Label col="2" text="&#xf054;" class="fas chevron-right" horizontalAlignment="center" android:verticalAlignment="center"></Label>
+                    </GridLayout>
+                </MDCardView>
+
+                <MDCardView *ngIf="company.customer.kycDynamicForm" class="company-fileset-card" rippleColor="lightgray" elevation="2">
+                    <GridLayout class="m-10" columns="auto, *, auto" (tap)="openDynamicForm(company.customer.kycDynamicForm.formId)">
+                        <GridLayout columns="auto, auto" marginRight="10">
+                            <StackLayout colSpan="2" width="60" height="60" verticalAlignment="top">
+                                <SVGImage [src]="dynamicFormImageSrc" height="48" width="32"></SVGImage>
+                            </StackLayout>
+                            <StackLayout col="1" verticalAlignment="bottom" horizontalAlignment="right">
+                                <omro-kyc-status [isKYCDataAvailable]="companyViewModel.kycDynamicFormCompleted"></omro-kyc-status>
+                            </StackLayout>
+                        </GridLayout>
+                        <StackLayout col="1" verticalAlignment="center">
+                            <Label class="h3" text="{{'Profile.Company.DynamicFormMainText' | L}}"></Label>
+                            <Label class="caption" text="{{'Profile.Company.DynamicFormSecondaryText' | L}}"></Label>
+                        </StackLayout>
+                        <Label col="2" text="&#xf054;" class="fas chevron-right" horizontalAlignment="center" android:verticalAlignment="center"></Label>
+                    </GridLayout>
+                </MDCardView>
+            </StackLayout>
+        </StackLayout>
+    </DockLayout>
+</ScrollView>

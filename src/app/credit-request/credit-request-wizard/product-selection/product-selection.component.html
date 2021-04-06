@@ -1,0 +1,89 @@
+<DockLayout>
+    <ScrollView #scrollView>
+        <StackLayout *ngIf="vm$ | async as vm" class="card-container">
+
+            <omro-top-progress [model]="topProgressModel$ | async" (closePressed)="goBack()" style="background-color: white;"></omro-top-progress>
+
+            <omro-card class="card">
+
+                <StackLayout class="card-layout">
+
+                    <Label class="h2 card-section" text="Oferta de principiu pentru creditul tău" textWrap="true"></Label>
+
+                    <omro-info-field class="card-section" caption="{{'CreditRequest.Overview.LoanAmount' | L | uppercase}}">
+                        <StackLayout orientation="horizontal" marginTop="-5"  >
+                            <Label class="h2" text="{{vm.acceptedAmount | number}}"></Label>
+                            <Label class="currency" text=" {{vm.currencyDisplayName}}"></Label>
+                        </StackLayout>
+                    </omro-info-field>
+
+                    <GridLayout columns="*,*" class="card-section">
+
+                        <omro-info-field caption="{{'CreditRequest.ContractPeriod' | L }}" col="0" row="0" >
+                            <Label class="title" text="{{vm.acceptedDuration}} {{'Common.Months' | L | lowercase}}" ></Label>
+                        </omro-info-field>
+
+                        <omro-info-field caption="{{'CreditRequest.Interest' | L }}" col="1" row="0" >
+                            <FlexboxLayout alignItems="flex-end">
+                                <Label class="title interest" text="{{vm.productSelection.offeredInterestRate | number:'1.2'}}%" ></Label>
+                                <Label class="alternate-interest" *ngIf="vm.productSelection.alternateInterestRate"
+                                       text=" {{vm.productSelection.alternateInterestRate | number:'1.2'}}%" ></Label>
+                            </FlexboxLayout>
+                        </omro-info-field>
+                    </GridLayout>
+
+                    <GridLayout columns="*,*" class="card-section">
+
+                        <omro-info-field caption="{{'CreditRequest.MonthlyPayment' | L }}" col="0" row="1" >
+                            <Label class="title" text="{{vm.monthlyPayment | number:'1.2'}} {{vm.currencyDisplayName | lowercase}}" ></Label>
+                        </omro-info-field>
+
+                        <omro-info-field caption="{{'CreditRequest.TotalPayment' | L }}" col="1" row="1" >
+                            <Label class="title" text="{{vm.totalPayment | number:'1.2'}} {{vm.currencyDisplayName | lowercase}}" ></Label>
+                        </omro-info-field>
+
+                    </GridLayout>
+
+                </StackLayout>
+
+            </omro-card>
+
+            <omro-card class="card" marginBottom="0">
+
+               <StackLayout class="card-layout">
+
+                   <GridLayout class="card-section" rows="auto" columns="auto, *, auto">
+
+                       <Label class="title" col="0" text="{{ vm.productSelection.minAllowedAmount | roundOneThousand }}k" verticalAlignment="center"></Label>
+
+                       <omro-price-wheel col="1" [barColor]="AppColors.SkyDark" [tickColor]="AppColors.Gray" [(ngModel)]="vm.acceptedAmount"
+                                         [minValue]="vm.productSelection.minAllowedAmount" [maxValue]="vm.productSelection.maxAllowedAmount" [step]="100"
+                                         [scrollView]="scrollView"
+                       ></omro-price-wheel>
+
+                       <Label class="title" col="2" text="{{ vm.productSelection.maxAllowedAmount | roundOneThousand }}k" verticalAlignment="center"></Label>
+
+                   </GridLayout>
+
+                   <!--<StackLayout class="card-section">
+
+                       <Label class="h3" text="{{ 'CreditRequest.DoYouWantToChangePeriod' | L }}"></Label>
+                       <ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
+                           <omro-carousel-select [items]="vm.productSelection.allowedPeriods" [(ngModel)]="vm.acceptedDuration"
+                                                 [valueFormatter]="monthFormatter"></omro-carousel-select>
+                       </ScrollView>
+
+                   </StackLayout>-->
+
+                   <Button class="btn btn-primary x-large" text="{{ 'CreditRequest.IAgree' | L }}" (tap)="onTapOk(vm)" ></Button>
+
+                   <Label class="btn btn-link text-center" text="{{ 'CreditRequest.NoThankYou' | L }}" (tap)="onTapCancel(vm)" ></Label>
+
+               </StackLayout>
+
+            </omro-card>
+
+        </StackLayout>
+
+    </ScrollView>
+</DockLayout>

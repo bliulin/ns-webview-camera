@@ -1,0 +1,74 @@
+@import "~/_app-variables.scss";
+
+.card{
+  padding-top: 10;
+  padding-bottom: 20;
+}
+
+.card-section{
+  margin-left: 20;
+  margin-right: 20;
+}
+
+.caption{
+  color: $text-color-caption;
+  &.small{
+    font-size: 12;
+  }
+}
+
+Label{
+  vertical-align: bottom;
+  margin-bottom: 0;
+}
+
+.credit-state{
+  border-radius: 17;
+  padding: 6 15 6 15;
+
+
+  &.in-progress{
+    background-color: $omro-orange;
+  }
+}
+
+.credit-state-lbl{
+  color: $omro-white;
+  @include text-medium();
+}
+
+#lbl-currency{
+  color: $text-color-caption;
+  font-size: 20;
+  margin: 7 0 0 -3;
+  vertical-align: center;
+}
+
+.btn-icon{
+  background-color: $omro-white;
+  color: $primary;
+
+  .label{
+    font-size: $size-m - 3 ;
+    font-weight: bold;
+  }
+
+  .icon{
+    font-size: $size-m + 1;
+  }
+}
+
+#img-folder-magnify{
+  width:90;
+  height: 80;
+  vertical-align: top;
+  horizontal-align: center;
+}
+
+#img-linechart{
+  height: 70;
+  horizontal-align: left;
+  vertical-align: top;
+  margin-top: 7;
+}
+

@@ -1,0 +1,21 @@
+@import '~/styles/_omro-main-colors.scss';
+@import '~/styles/mixins.scss';
+
+.close-button-container {
+  @include square(60);
+  .close_icon {
+    margin: 20;
+    @include square(20);
+  }
+}
+.main-container {
+  .omro-text-field {
+    .text-field {
+      padding-left: 10;
+      height: 45;
+      border-width: 2;
+      border-radius: 10;
+      border-color: $omro-gray-dark;
+    }
+  }
+}

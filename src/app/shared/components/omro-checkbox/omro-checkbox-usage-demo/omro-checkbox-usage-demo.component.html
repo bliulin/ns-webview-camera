@@ -1,0 +1,25 @@
+<StackLayout class="m-20" [formGroup]="formGroup">
+    <!-- This is a basic text for checkbox -->
+    <omro-checkbox formControlName="defaultCheckbox" text="Basic usage of checkbox"> </omro-checkbox>
+
+    <!-- This is custom text usage -->
+    <omro-checkbox #checkbox formControlName="customCheckbox">
+        <FlexboxLayout class="checkbox-custom-text" flexWrap="wrap" alignItems="stretch">
+            <Label alignSelf="flex-end" class="title" (tap)="checkbox.toggle()" textWrap="true" text="Marketing campaigns "></Label>
+            <Label class="clickable" text="GDDPR terms" textWrap="true" (tap)="displayAlert()"></Label>
+        </FlexboxLayout>
+    </omro-checkbox>
+
+    <omro-checkbox #checkbox_2 formControlName="thirdheckbox">
+        <FlexboxLayout class="checkbox-custom-text" flexWrap="wrap" alignItems="stretch">
+            <Label alignSelf="flex-end" class="title" (tap)="checkbox_2.toggle()" textWrap="true" text="Please accept the "></Label>
+            <Label class="clickable" text="terms and conditions" textWrap="true" (tap)="displayAlert()"></Label>
+        </FlexboxLayout>
+    </omro-checkbox>
+
+
+    <omro-radio-button #radio_btn formControlName="radioButton" text="Basic usage of radio button">
+    </omro-radio-button>
+
+    <Button class="btn btn-primary" text="Submit" [isEnabled]="formGroup.valid"></Button>
+</StackLayout>

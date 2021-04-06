@@ -1,0 +1,49 @@
+@import "~/styles/_omro-main-colors.scss";
+@import "~/styles/_sizes.scss";
+
+.main-company-container {
+  background-color: $omro-white;
+  border-bottom-left-radius: 15;
+  border-bottom-right-radius: 15;
+  .company-card {
+    margin-top: 20;
+    background-color: $omro-white;
+    .company-image {
+      width: 45;
+      height: 45;
+    }
+    .info-txt {
+      margin-bottom: 20;
+    }
+  }
+  .company-main-details {
+    margin-top: 20;
+    * {
+      margin: 0, 10, 10, 0;
+    }
+  }
+}
+
+.company-fileset-card {
+  margin: 0 10 20 10;
+  border-radius: 15;
+  background-color: $omro-white;
+  .chevron-right {
+    font-size: $size-m + $size-xs;
+  }
+}
+
+.main-container {
+  background-color: $omro-gray-light;
+  .company-actions-section {
+    margin: 20, 0, 10, 10;
+  }
+
+  .company-actions-container {
+    margin-bottom: 30;
+  }
+}
+
+.dock-container {
+  margin-bottom: 20;
+}

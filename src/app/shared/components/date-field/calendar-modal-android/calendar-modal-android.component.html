@@ -1,0 +1,13 @@
+<StackLayout>
+    <DatePicker [(ngModel)]="dateSelector"
+                className="date-picker"></DatePicker>
+    <StackLayout orientation="horizontal" horizontalAlignment="right">
+        <StackLayout className="btn-container" (tap)="onCloseSelectDate(true)">
+            <Label text="Cancel" class="btn-next"></Label>
+        </StackLayout>
+        <StackLayout className="btn-container" (tap)="onCloseSelectDate(false)">
+            <Label text="OK" class="btn-previous"></Label>
+        </StackLayout>
+
+    </StackLayout>
+</StackLayout>

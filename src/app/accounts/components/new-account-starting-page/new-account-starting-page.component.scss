@@ -1,0 +1,9 @@
+@import '~/styles/_omro-main-colors.scss';
+
+.main-container {
+  margin: 5, 0, 20, 0;
+  .card-container {
+    border-radius: 15;
+    background-color: $omro-white;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "main": "main.js",
+  "android": {
+    "v8Flags": "--expose_gc",
+    "markingMode": "none"
+  },
+  "dependencies": {
+    "@nota/nativescript-webview-ext": "^6.5.3-mediadevices.0",
+    "observable-array": "0.0.4"
+  }
+}

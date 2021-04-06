@@ -1,0 +1,16 @@
+<ScrollView class="layout-gray">
+    <StackLayout>
+
+        <StackLayout >
+            <BackButton (backWasPressed)="goBack()"></BackButton>
+        </StackLayout>
+
+        <Label class="h2 m-20" text="{{ 'Common.Credits' | L }}" horizontalAlignment="left"></Label>
+
+        <StackLayout class="m-t-10" *ngIf="product$ | async as product">
+            <omro-card rippleColor="transparent">
+                <omro-credit-overview [product]="product" (productRequestCancelled)="onProductRequestCancelled()"></omro-credit-overview>
+            </omro-card>
+        </StackLayout>
+    </StackLayout>
+</ScrollView>

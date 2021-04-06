@@ -1,0 +1,6 @@
+<MDCardView col="1" class="action-btn m-y-10" [isEnabled]="isEnabled" [ngClass]="buttonStyle | kebabcase" (tap)="onButtonPress.emit()">
+    <GridLayout verticalAlignment="center" rows="auto" columns="*, auto">
+        <Label class="text-label text-center" [text]="text" android:verticalAlignment="center"></Label>
+        <Label col="1" *ngIf="showIcon" text="&#xf138;" class="fas icon text-center m-10"></Label>
+    </GridLayout>
+</MDCardView>

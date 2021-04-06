@@ -1,0 +1,36 @@
+@import '~/styles/_omro-main-colors.scss';
+@import '~/styles/mixins.scss';
+@import '~/styles/_sizes.scss';
+
+.main-container-border {
+  @include circle(35);
+  border-width: 2;
+  border-color: $omro-gray;
+  margin-right: 10;
+  &.checked {
+    border-width: 2;
+    border-color: lighten($omro-green, 50%);
+  }
+  &.readonly {
+    border-color: $omro-gray-light;
+  }
+  .main-container {
+    @include circle(35);
+    border-width: 10;
+    vertical-align: center;
+    horizontal-alignment: center;
+    border-color: $omro-green;
+    &.checked {
+      background-color: $omro-white;
+    }
+    &.readonly {
+      border-color: $omro-gray-medium;
+    }
+  }
+}
+
+.default-text {
+  &.readonly {
+    color: $omro-gray-medium;
+  }
+}

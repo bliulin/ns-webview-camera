@@ -1,0 +1,19 @@
+<StackLayout [formGroup]="formGroup">
+    <omro-radio-button
+        class="option"
+        [class.m-y-20]="hasCustomContent"
+        *ngFor="let option of getOptions"
+        [text]="!hasCustomContent ? possibleValues[option] : null"
+        [formControlName]="option"
+        [readonly]="isReadonly"
+    >
+        <FlexboxLayout *ngIf="hasCustomContent" class="account-iban-row">
+            <omro-info-field [caption]="'Transfers.Homepage.BusinessPartners.PartnerDetails.BeneficiaryIbanAccountCaptionText' | L | uppercase">
+                <Label class="h3" [text]="possibleValues[option]"> </Label>
+            </omro-info-field>
+            <omro-info-field [caption]="'Transfers.Homepage.BusinessPartners.PartnerDetails.CurrencyCaptionText' | L | uppercase">
+                <Label class="h3" [text]="customData[option]"> </Label>
+            </omro-info-field>
+        </FlexboxLayout>
+    </omro-radio-button>
+</StackLayout>

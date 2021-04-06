@@ -1,0 +1,329 @@
+@import '~/styles/mixins.scss';
+
+* {
+  @include text-regular();
+}
+
+.fas {
+  font-family: 'FontAwesome';
+}
+
+.ff {
+  font-family: 'Filbo';
+}
+
+/**
+ * Labels
+ */
+.h1 {
+  @include text-light();
+  font-size: $size-xl - 4;
+}
+
+.h2 {
+  @include text-regular();
+  font-size: $size-l;
+}
+
+.h3 {
+  @include text-regular();
+  font-size: $size-m - 2;
+}
+
+.h4 {
+  @include text-regular();
+  font-size: $size-m - 4;
+}
+
+.title {
+  @include text-medium();
+  font-size: $size-m - 2;
+  &-f-regular {
+    @include text-regular();
+  }
+}
+
+.subtitle {
+  @include text-regular();
+  font-size: $size-m - 4;
+}
+
+.caption {
+  @include text-medium();
+  font-size: $size-s + 2;
+  color: $omro-gray;
+  vertical-align: center;
+}
+
+.form-label {
+  font-size: 16;
+}
+
+.body {
+  font-size: $size-m;
+  color: $text-color;
+  @include text-regular();
+}
+
+label {
+  color: $text-color;
+  font-size: $size-m;
+
+  &.uppercase {
+    text-transform: uppercase;
+  }
+
+  &.error {
+    margin: 0, 0, 10, 10;
+    color: $omro-red;
+    font-size: $size-m - 4;
+    @include text-medium();
+  }
+
+  &.success {
+    margin: 0, 0, 10, 10;
+    color: $success-dark;
+    font-size: $size-m - 4;
+    @include text-medium();
+  }
+
+  &.clickable {
+    color: $lbl-color-action;
+    text-decoration: underline;
+    font-size: $size-m - 2;
+  }
+  &.info {
+    color: $omro-orange;
+    font-size: $size-m - $size-xs;
+  }
+}
+
+.lbl-action {
+  color: $lbl-color-action;
+  &.fs-18 {
+    font-size: 18;
+  }
+}
+
+/**
+ * Switches
+ */
+
+Switch {
+  color: $omro-green;
+  background: $omro-gray;
+  &.disabled {
+    color: $omro-gray;
+  }
+}
+
+/**
+ * Progress
+ */
+
+progress {
+  color: $omro-green;
+  background-color: $omro-gray-light;
+}
+
+.searchbar {
+  color: $accent-dark;
+  font-size: $size-m + 4;
+}
+
+.list-item {
+  color: $accent-dark;
+  font-size: $size-m;
+  font-weight: bold;
+}
+
+/**
+ * Buttons
+ */
+
+.btn {
+  color: $text-color;
+  background-color: transparent;
+  min-height: 52;
+  min-width: 64;
+  font-size: $size-m;
+
+  &.small {
+    font-size: $size-m - 3;
+    height: 38;
+    min-width: 140;
+  }
+  &.medium {
+    font-size: $size-m;
+    height: 44;
+    min-width: 180;
+  }
+  &.large {
+    font-size: $size-m + 2;
+    height: 52;
+  }
+  &.x-large {
+    font-size: $size-m + 2;
+    height: 60;
+  }
+
+  &:highlighted {
+    color: $text-color;
+    background-color: $omro-gray-light;
+  }
+}
+
+.btn[isEnabled='false'] {
+  color: $btn-color-disabled-text;
+  background-color: $btn-color-disabled;
+  border-color: $btn-color-disabled;
+}
+
+.btn-primary {
+  color: $btn-color-primary-text;
+  background-color: $btn-color-primary;
+  border-radius: $size-s;
+  text-transform: none;
+  &:highlighted {
+    color: $btn-color-primary-text;
+    background-color: $btn-color-primary-active;
+  }
+}
+
+.btn-secondary {
+  color: $btn-color-secondary-text;
+  background-color: $btn-color-secondary;
+  border-radius: $size-s;
+  text-transform: none;
+  &:highlighted {
+    color: $btn-color-secondary-text;
+    background-color: $btn-color-secondary-active;
+  }
+}
+
+.btn-error {
+  color: $btn-color-error-text;
+  background-color: $btn-color-error;
+  border-radius: $size-s;
+  text-transform: none;
+  &:highlighted {
+    color: $btn-color-error-text;
+    background-color: $btn-color-error-active;
+  }
+}
+
+.btn-transparent {
+  border-width: 1;
+  border-color: $btn-color-border;
+  border-radius: $size-s;
+  text-transform: none;
+  background-color: $omro-white;
+  android-elevation: 0;
+  &:highlighed {
+    background-color: $omro-gray-light;
+    border-color: $omro-gray-light;
+  }
+}
+
+.btn-link {
+  color: $lbl-color-action;
+}
+
+.btn-action {
+  color: $omro-white;
+  background-color: $omro-navy;
+  border-radius: $size-s;
+  text-transform: none;
+  &:highlighted {
+    color: $omro-white;
+    background-color: lighten($omro-navy, 8%);
+  }
+}
+
+/**
+ * Action bar
+ */
+
+ActionBar {
+}
+
+.action-bar-gray {
+  background-color: $omro-gray-light;
+  color: $primary;
+}
+
+/**
+ * Other classes
+ */
+
+.hidden {
+  visibility: collapse;
+}
+
+.vr {
+  width: 1;
+  background-color: $omro-gray-light;
+}
+
+.hr {
+  background-color: $omro-gray-light;
+  height: 1;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+.page-without-bar {
+  padding-top: 60;
+}
+
+.m-30 {
+  margin: 30;
+}
+
+.lbl-elipsis {
+  vertical-align: top;
+  font-size: $size-l + 10;
+  margin-top: -24;
+  letter-spacing: -0.1;
+}
+
+.layout-gray {
+  background-color: $omro-gray-light;
+}
+
+.layout-white {
+  background-color: $omro-white;
+}
+
+
+/* UVP's */
+.uvp-logo {
+  height: 30;
+  width: 80;
+}
+
+.carousel-container {
+  margin-bottom: 20;
+}
+
+
+/* Close icon */
+.icon_close {
+  margin: 20, 20, 0, 0;
+  @include square(20);
+  horizontal-align: right;
+}
+
+.icon_back {
+  margin: 20, 20, 0, 20;
+}
+
+.close-button-container {
+  @include square(60);
+  .close_icon {
+    margin: 20;
+    @include square(20);
+  }
+}

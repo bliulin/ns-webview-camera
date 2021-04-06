@@ -1,0 +1,32 @@
+<StackLayout class="page">
+    <BackButton (backWasPressed)="goBack()"></BackButton>
+    <StackLayout class="m-20">
+        <Label class="h2 m-y-10" [text]="'EWallet.Homepage.NoCardsAdded.NewCard.Name.SetNameTitle' | L" textWrap="true"></Label>
+        <omro-text-field
+            marginTop="30"
+            [label]="'EWallet.Homepage.NoCardsAdded.NewCard.Name.Label' | L"
+            [formControl]="cardNameFormControl"
+            returnType="go"
+            (returnPress)="onActionTap()"
+        ></omro-text-field>
+        <GridLayout rows="30">
+            <Label
+                *ngIf="!cardNameFormControl.valid && cardNameFormControl.touched"
+                class="error-lbl"
+                [text]="getErrorMessage()"
+                verticalAlignment="center"
+            ></Label>
+        </GridLayout>
+    </StackLayout>
+    <GridLayout row="1" marginBottom="10%">
+        <Button
+            class="btn btn-primary x-large"
+            width="50%"
+            horizontalAlignment="right"
+            [text]="'Common.Next' | L"
+            [isEnabled]="cardNameFormControl.valid"
+            (tap)="onNextTap()"
+            verticalAlignment="bottom"
+        ></Button>
+    </GridLayout>
+</StackLayout>

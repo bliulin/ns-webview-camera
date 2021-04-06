@@ -1,0 +1,27 @@
+<GridLayout>
+  <GridLayout
+    *ngIf="activityLoaderService.isLoading$ | async"
+    backgroundColor="#33252525"
+    (tap)="(true)"
+    style="z-index: 10001"
+  >
+    <ActivityIndicator
+      width="100"
+      height="100"
+      busy="true"
+      class="activity-indicator"
+    ></ActivityIndicator>
+  </GridLayout>
+
+  <GridLayout *ngIf="lockScreenVisible$ | async" style="z-index: 1000;">
+    <omro-unlock-screen></omro-unlock-screen>
+  </GridLayout>
+
+  <StackLayout [class.hidden]="routerOutletHidden$ | async">
+    <page-router-outlet></page-router-outlet>
+  </StackLayout>
+
+  <omro-app-status
+    (appStatusError)="onAppStatusError($event)"
+  ></omro-app-status>
+</GridLayout>

@@ -1,0 +1,13 @@
+@import "~/styles/_omro-main-colors.scss";
+
+.main-container {
+  margin: 20, 20, 0, 20;
+  .currency {
+    color: $omro-gray-dark;
+  }
+}
+
+.action-next {
+  width: 35%;
+  horizontal-alignment: right;
+}

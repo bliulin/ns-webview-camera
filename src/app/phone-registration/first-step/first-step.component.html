@@ -1,0 +1,53 @@
+<StackLayout orientation="vertical" class="page-without-bar" [formGroup]="formGroup">
+
+  <Label class="h2 m-20" text="{{ 'PhoneRegistration.Heading' | L }}"></Label>
+
+  <Label class="m-20" text="{{ 'PhoneRegistration.Description' | L }}" textWrap="true"></Label>
+
+  <StackLayout orientation="horizontal" class="m-x-20">
+
+      <StackLayout width="49%">
+        <MTextField formControlName="firstName" placeholder="{{ 'PhoneRegistration.FirstName' | L }}" class="mtextfield"
+                    [class.invalid]="hasError('firstName')" maxLength="100"></MTextField>
+        <ValidationError [show]="hasError('firstName')" [errorMessage]="getError('firstName')" ></ValidationError>
+      </StackLayout>
+
+      <StackLayout width="49%" marginLeft="10">
+        <MTextField formControlName="lastName" placeholder="{{ 'PhoneRegistration.LastName' | L }}" class="mtextfield"
+                    maxLength="100" [class.invalid]="hasError('lastName')"></MTextField>
+        <ValidationError [show]="hasError('lastName')" [errorMessage]="getError('lastName')"></ValidationError>
+      </StackLayout>
+
+  </StackLayout>
+
+  <StackLayout class="m-x-20" >
+
+    <StackLayout orientation="horizontal" class="phone-number" [ngClass]="{invalid:hasError('phoneNumber'), selected:textField.hasFocus}" >
+
+          <GridLayout columns="105">
+
+              <Label text="{{ 'PhoneRegistration.Prefix' | L }}"  class="mtextfield-layout-label" [class.label-up]="formatedPrefix!=''" col="0" ></Label>
+
+              <Label [text]="formatedPrefix" class="prefix" col="0"></Label>
+
+          </GridLayout>
+
+          <StackLayout class="separator"></StackLayout>
+
+          <MTextField [hasSelectionBorder]="false" placeholder="{{ 'PhoneRegistration.Number' | L }}"  class="mtextfield  text-field" keyboardType="phone"
+                      formControlName="phoneNumber" #textField maxLength="30" returnKeyType="go" (returnPress)="onTapContinue()"></MTextField>
+
+      </StackLayout>
+
+    <ValidationError [show]="hasError('countryPrefix') || hasError('phoneNumber')"
+                     [errorMessage]="getError('countryPrefix') || getError('phoneNumber')" ></ValidationError>
+
+  </StackLayout>
+
+  <Button class="btn btn-primary x-large" text="{{'PhoneRegistration.ContinueButton' | L }}" (tap)="onTapContinue()" ></Button>
+
+  <Label class="btn btn-link text-center" text="{{'Common.Cancel' | L }}" (tap)="onTapCancel()" ></Label>
+
+</StackLayout>
+
+

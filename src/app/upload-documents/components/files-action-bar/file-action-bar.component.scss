@@ -1,0 +1,16 @@
+@import '~/styles/_omro-main-colors.scss';
+.red {
+  color: $omro-rose;
+}
+
+.blue {
+  color: $omro-sky-dark;
+}
+
+.select {
+  margin-right: 10;
+}
+
+ActionBar {
+  background-color: $omro-white;
+}

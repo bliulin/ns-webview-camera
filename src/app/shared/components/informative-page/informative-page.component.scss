@@ -1,0 +1,18 @@
+@import '~/styles/_omro-main-colors.scss';
+@import '~/styles/mixins.scss';
+
+Label {
+  color: $omro-blackish;
+}
+
+.close-button-container {
+  @include square(60);
+  .close_icon {
+    margin: 20;
+    @include square(20);
+  }
+}
+
+.description {
+  font-size: 16;
+}

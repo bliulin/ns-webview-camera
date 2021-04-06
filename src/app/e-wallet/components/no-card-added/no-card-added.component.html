@@ -1,0 +1,26 @@
+<StackLayout class="main-container" shadow [elevation]="6" cornerRadius="15">
+    <ng-container *ngIf="user$ | async as user">
+        <GridLayout rows="auto" class="card-container">
+            <StackLayout class="m-20">
+                <GridLayout height="240" horizontalAlignment="center" stretch="fill">
+                    <img height="220" class="imageAnimation" src="res://nocardsadded" />
+                </GridLayout>
+
+                <Label class="h2 m-10" horizontalAlignment="center" [text]="('Common.Hey' | L) + ', ' + user.firstName + '!'"></Label>
+                <Label
+                        class="m-10 text-center"
+                        horizontalAlignment="center"
+                        [text]="'EWallet.Homepage.NoCardsAdded.Description' | L"
+                        textWrap="true"
+                ></Label>
+                <Button
+                        [width]="isTablet ? '50%' : '90%'"
+                        class="btn btn-primary"
+                        [text]="'EWallet.Homepage.NoCardsAdded.ActivateButtonText' | L"
+                        [isEnabled]="true"
+                        (tap)="onValidateTap()"
+                ></Button>
+            </StackLayout>
+        </GridLayout>
+    </ng-container>
+</StackLayout>

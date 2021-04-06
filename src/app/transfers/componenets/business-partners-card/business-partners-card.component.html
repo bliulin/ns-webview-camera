@@ -1,0 +1,44 @@
+<StackLayout *ngIf="vm$ | async as vm">
+    <Label *ngIf="vm.length > 0" class="title account-transactions uppercase" [text]="'Transfers.Homepage.BusinessPartners.HeaderText' | L"></Label>
+    <StackLayout class="main-container" shadow [elevation]="6" cornerRadius="15">
+        <GridLayout rows="auto" class="card-container">
+            <StackLayout>
+                <ng-container *ngFor="let partner of vm; let i = index">
+                    <StackLayout class="partner-row" [class.odd]="i % 2 !== 0" (tap)="onPartnerTap(partner.id)">
+                        <GridLayout class="m-10" rows="auto" columns="auto,*">
+                            <StackLayout class="partner-initials">
+                                <Label class="text-center" [text]="partner.twoLetterName" textWrap="true"></Label>
+                            </StackLayout>
+                            <StackLayout col="1" class="name-iban-section">
+                                <StackLayout>
+                                    <Label class="h3" maxLines="2" [text]="partner.name" textWrap="true"></Label>
+                                </StackLayout>
+                                <StackLayout *ngIf="!!partner.accounts.length" [ngSwitch]="getIbanUiState(partner)">
+                                    <Label *ngSwitchDefault class="iban uppercase" [text]="partner.accounts[0].iban"></Label>
+
+                                    <StackLayout *ngSwitchCase="ibanUiState.isFilboParner" orientation="horizontal">
+                                        <Label
+                                            class="iban filbo-partner uppercase"
+                                            [text]="'Transfers.Homepage.BusinessPartners.FilboPartnerInfoText' | L"
+                                            textWrap="true"
+                                        >
+                                        </Label>
+                                        <img height="25" marginTop="-5" src="res://icon" />
+                                    </StackLayout>
+                                    
+                                    <Label
+                                        class="iban uppercase"
+                                        *ngSwitchCase="ibanUiState.hasMultimpleAccountsAssociated"
+                                        [text]="partner.accounts.length + ' ' + ('Transfers.Homepage.BusinessPartners.AssociatedAccountsLabelText' | L)"
+                                        textWrap="true"
+                                    ></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </GridLayout>
+                        <StackLayout class="hr"></StackLayout>
+                    </StackLayout>
+                </ng-container>
+            </StackLayout>
+        </GridLayout>
+    </StackLayout>
+</StackLayout>

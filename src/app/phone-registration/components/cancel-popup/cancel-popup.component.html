@@ -1,0 +1,7 @@
+<StackLayout style="text-align: center">
+    <Image class="m-20" style="width: 60%" [src]="localizeImg('res://phonecancel')"></Image>
+    <Label class="h2 m-20" text="{{ 'PhoneRegistration.AreYouSure' | L }}"></Label>
+    <Label class="m-20" text="{{ 'PhoneRegistration.AreYouSureDescription' | L }}" textWrap="true"></Label>
+    <Button class="btn btn-primary x-large" text="{{'Common.No' | L}}" (tap)="onTap('No')" ></Button>
+    <Label class="btn btn-link" text="{{'Common.Yes' | L }}, {{'Common.Cancel' | L}}" (tap)="onTap('Yes')"></Label>
+</StackLayout>

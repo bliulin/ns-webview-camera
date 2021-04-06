@@ -1,0 +1,73 @@
+<StackLayout class="card">
+
+    <!-- Credit status -->
+    <FlexboxLayout class="card-section" justifyContent="space-between" alignItems="flex-start">
+
+        <StackLayout [ngClass]="['credit-state', productSummary.state | kebabcase]" >
+            <Label class="caption credit-state-lbl" text="{{displayProductRequestState}}" ></Label>
+        </StackLayout>
+
+        <Label class="lbl-elipsis" text="..."  (tap)="onTapElipsis()"></Label>
+
+    </FlexboxLayout>
+    <!-- Credit status -->
+
+    <!-- Credit amount -->
+    <GridLayout class="m-t-10">
+
+        <Image id="img-linechart" src="res://linechart" ></Image>
+
+        <omro-info-field class="card-section" caption="{{'CreditRequest.Overview.LoanAmount' | L | uppercase}}">
+            <StackLayout orientation="horizontal" marginTop="-5"  >
+                <Label class="h2" text="{{productSummary.requestedAmount | number}}"></Label>
+                <Label id="lbl-currency" text=" {{productSummary.currencyDislayName}}"></Label>
+            </StackLayout>
+        </omro-info-field>
+
+    </GridLayout>
+    <!-- Credit amount -->
+
+    <!-- Credit details -->
+    <GridLayout class="card-section" columns="*,*">
+
+        <!--
+        <omro-info-field caption="{{'CreditRequest.Overview.Destination' | L | uppercase}}" col="0">
+            <Label class="title" text="{{productSummary.purpose}}" ></Label>
+        </omro-info-field>
+        -->
+
+        <omro-info-field caption="{{'CreditRequest.Overview.Period' | L | uppercase}}" col="0">
+            <Label class="title" text="{{duration}} {{'Common.Months' | L | lowercase}}" ></Label>
+        </omro-info-field>
+
+        <omro-info-field class="text-center" caption="{{'CreditRequest.Overview.Interest' | L | uppercase}}" col="1"
+                         [visibility]="productSummary.acceptedInterestRate ? 'visible' : 'collapse'" >
+            <Label class="title" text="{{productSummary.acceptedInterestRate | number:'1.2'}}%" ></Label>
+        </omro-info-field>
+
+    </GridLayout>
+    <!-- Credit details -->
+
+    <!-- Credit stages -->
+    <StackLayout class="card-section m-t-10">
+
+        <omro-stage-list-view [stages]="product.stages"></omro-stage-list-view>
+
+    </StackLayout>
+    <!-- Credit stages -->
+
+    <!-- Current stage action -->
+    <GridLayout columns="120,*" class="card-section m-t-20" >
+
+        <SVGImage id="img-folder-magnify" col="0"
+                  [src]="'~/images/folder-magnify-glass.svg'"></SVGImage>
+        <StackLayout col="1" verticalAlignment="center">
+            <Label [text]="currentStage.details" textWrap="true" class="title"></Label>
+            <Button *ngIf="currentStage.requiresUserInput" [text]="currentStage.actionButtonText"
+                    class="btn btn-primary medium pull-left" marginLeft="0" (tap)="onTapActionButton()" ></Button>
+        </StackLayout>
+
+    </GridLayout>
+    <!-- Current stage action -->
+
+</StackLayout>

@@ -1,0 +1,139 @@
+<ScrollView>
+    <DockLayout>
+        <omro-close-button (tapClose)="goBack()" class="pull-right" dock="top"></omro-close-button>
+        <StackLayout *ngIf="vm.transaction as transaction">
+            <StackLayout class="m-20" verticalAlignment="top">
+                <Label class="h2" text="{{ 'Accounts.TransactionDetails.TransactionDetailsHeader' | L }}"></Label>
+                <Label *ngIf="showSendConfirmationText"
+                       [text]="'Accounts.TransactionDetails.SendConfirmationViaEmail_ButtonText' | L"
+                       class="azure"></Label>
+                <GridLayout columns="*,*" marginTop="20" rows="auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto">
+                    <omro-info-field [caption]="'Accounts.TransactionDetails.TransactionReference_Label' | L"
+                                     colSpan="2"
+                                     row="0">
+                        <Label [text]="transaction.transactionReference" class="title" textWrap="true"></Label>
+                    </omro-info-field>
+                    <omro-info-field [caption]="'Accounts.TransactionDetails.TransactionValue_Label' | L" row="1">
+                        <StackLayout orientation="horizontal">
+                            <Label [text]="transaction.amount | number: '1.2'" class="title"></Label>
+                            <Label [text]="' ' + transaction.currencyCode | lowercase" class="title"></Label>
+                        </StackLayout>
+                    </omro-info-field>
+                    <omro-info-field [caption]="'Accounts.TransactionDetails.TransactionType_Label' | L" col="1"
+                                     row="1">
+                        <Label [text]="transaction.categoryName" class="title" textWrap="true"> </Label>
+                    </omro-info-field>
+
+                    <omro-info-field [caption]="'Accounts.TransactionDetails.TransactionDate_Label' | L" col="0"
+                                     row="2">
+                        <Label [text]="transaction.bookedDate | date: 'dd.MM.yyyy'" class="title"> </Label>
+                    </omro-info-field>
+
+                    <ng-container [ngSwitch]="transaction.categoryCode">
+                        <ng-container *ngSwitchCase="TransactionCategory.Payment">
+                            <ng-container *ngTemplateOutlet="makePayment; context:vm"></ng-container>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="TransactionCategory.Incoming">
+                            <ng-container *ngTemplateOutlet="receivePayment; context:vm"></ng-container>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="TransactionCategory.Transfer">
+                            <ng-container *ngTemplateOutlet="transfer; context:vm"></ng-container>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="TransactionCategory.FX">
+                            <ng-container *ngTemplateOutlet="fx; context:vm"></ng-container>
+                        </ng-container>
+                    </ng-container>
+
+
+                    <omro-info-field [caption]="'Accounts.TransactionDetails.Status_Label' | L" col="0" colSpan="2"
+                                     row="20">
+                        <Label [text]="transaction.statusName" class="title red"> </Label>
+                    </omro-info-field>
+
+                </GridLayout>
+            </StackLayout>
+        </StackLayout>
+    </DockLayout>
+</ScrollView>
+
+<ng-template #makePayment let-transaction="transaction">
+    <omro-info-field [caption]="'Accounts.TransactionDetails.Beneficiary_Label' | L" col="0" colSpan="2" row="3">
+        <Label [text]="transaction.otherPartyName" class="title" textWrap="true"> </Label>
+    </omro-info-field>
+    <omro-info-field [caption]="'Accounts.TransactionDetails.BenefIBAN_Label' | L" col="0" colSpan="2" row="4">
+        <Label [text]="transaction.otherPartyAccount" class="title" textWrap="true"> </Label>
+    </omro-info-field>
+    <omro-info-field [caption]="'Accounts.TransactionDetails.BenefBank_Label' | L" col="0" colSpan="2" row="5">
+        <Label [text]="transaction.otherPartyBank" class="title" textWrap="true"> </Label>
+    </omro-info-field>
+    <omro-info-field *ngIf="transaction.filboFee" row="6" colSpan="2" [caption]="'Accounts.TransactionDetails.ComisionFilbo_Label' | L">
+        <StackLayout orientation="horizontal">
+            <Label [text]="transaction.filboFee | number: '1.1'" class="title"></Label>
+            <Label [text]="' ' + transaction.currencyCode | lowercase" class="title"></Label>
+        </StackLayout>
+    </omro-info-field>
+    <omro-info-field *ngIf="transaction.interchangeFee" row="7" colSpan="2"
+                     [caption]="'Accounts.TransactionDetails.ComisionSistemeDecontare_Label' | L">
+        <StackLayout orientation="horizontal">
+            <Label [text]="transaction.interchangeFee | number: '1.1'" class="title"></Label>
+            <Label [text]="' ' + transaction.currencyCode | lowercase" class="title"></Label>
+        </StackLayout>
+    </omro-info-field>
+    <omro-info-field row="8" colSpan="2" [caption]="'Accounts.TransactionDetails.ExchangeRate2_Label' | L">
+        <Label [text]="transaction.fxRate | number: '1.1'" class="title"></Label>
+    </omro-info-field>
+</ng-template>
+
+<ng-template #receivePayment let-transaction="transaction">
+    <omro-info-field [caption]="'Accounts.TransactionDetails.Payer_Label' | L" col="0" colSpan="2" row="3">
+        <Label [text]="transaction.otherPartyName" class="title" textWrap="true"> </Label>
+    </omro-info-field>
+    <omro-info-field [caption]="'Accounts.TransactionDetails.PayerIBAN_Label' | L" col="0" colSpan="2" row="4">
+        <Label [text]="transaction.otherPartyAccount" class="title" textWrap="true"> </Label>
+    </omro-info-field>
+    <omro-info-field [caption]="'Accounts.TransactionDetails.BenefBank_Label' | L" col="0" colSpan="2" row="5">
+        <Label [text]="transaction.otherPartyBank" class="title" textWrap="true"> </Label>
+    </omro-info-field>
+    <omro-info-field row="6" colSpan="2" [caption]="'Accounts.TransactionDetails.ComisionFilbo_Label' | L">
+        <StackLayout orientation="horizontal">
+            <Label [text]="transaction.filboFee | number: '1.1'" class="title"></Label>
+            <Label [text]="' ' + transaction.currencyCode | lowercase" class="title"></Label>
+        </StackLayout>
+    </omro-info-field>
+    <omro-info-field row="7" colSpan="2" [caption]="'Accounts.TransactionDetails.ComisionSistemeDecontare_Label' | L">
+        <StackLayout orientation="horizontal">
+            <Label [text]="transaction.interchangeFee | number: '1.1'" class="title"></Label>
+            <Label [text]="' ' + transaction.currencyCode | lowercase" class="title"></Label>
+        </StackLayout>
+    </omro-info-field>
+    <omro-info-field row="8" colSpan="2" [caption]="'Accounts.TransactionDetails.ExchangeRate2_Label' | L">
+        <StackLayout orientation="horizontal">
+            <Label [text]="transaction.fxRate | number: '1.1'" class="title"></Label>
+            <Label [text]="' ' + transaction.currencyCode | lowercase" class="title"></Label>
+        </StackLayout>
+    </omro-info-field>
+</ng-template>
+
+<ng-template #transfer let-transaction="transaction">
+    <omro-info-field [caption]="'Accounts.TransactionDetails.TransferFromAccount_Label' | L" col="0" colSpan="2" row="3">
+        <Label [text]="transaction.fromAccount" class="title" textWrap="true"> </Label>
+    </omro-info-field>
+    <omro-info-field [caption]="'Accounts.TransactionDetails.TransferIntoAccount_Label' | L" col="0" colSpan="2" row="4">
+        <Label [text]="transaction.intoAccount" class="title" textWrap="true"> </Label>
+    </omro-info-field>
+    <omro-info-field row="8" colSpan="2" [caption]="'Accounts.TransactionDetails.ExchangeRate2_Label' | L">
+        <StackLayout orientation="horizontal">
+            <Label [text]="transaction.fxRate | number: '1.1'" class="title"></Label>
+            <Label [text]="' ' + transaction.currencyCode | lowercase" class="title"></Label>
+        </StackLayout>
+    </omro-info-field>
+</ng-template>
+
+<ng-template #fx let-transaction="transaction">
+    <omro-info-field [caption]="'Accounts.TransactionDetails.ExchangeRate_Label' | L" col="1" row="2">
+        <Label [text]="transaction.fxRate" class="title"> </Label>
+    </omro-info-field>
+    <omro-info-field [caption]="'Accounts.TransactionDetails.CurrencyPair_Label' | L" col="0" row="3">
+        <Label [text]="transaction.currencyPair" class="title"> </Label>
+    </omro-info-field>
+</ng-template>

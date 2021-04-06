@@ -1,0 +1,68 @@
+<ScrollView class="page-without-bar m-20">
+    <GridLayout class="body" height="100%" [formGroup]="formGroup" rows="auto, *, auto">
+        <StackLayout marginTop="5%">
+            <Label class="h2" text="{{ 'Email.NewAccountLabel' | L }}"></Label>
+            <Label textWrap="true" text="{{ 'Email.Registration.Description' | L }}"></Label>
+        </StackLayout>
+        <StackLayout row="1" verticalAlignment="top" marginTop="5%">
+            <MTextField
+                class="mtextfield"
+                [class.invalid]="hasError('email')"
+                formControlName="email"
+                placeholder="{{ 'Email.Registration.EmailHint' | L }}"
+                keyboardType="email"
+                returnKeyType="next"
+            ></MTextField>
+            <ValidationError [show]="hasError('email')" [errorMessage]="getError('email')"></ValidationError>
+            <MTextField
+                class="mtextfield"
+                [class.invalid]="hasError('cif')"
+                formControlName="cif"
+                placeholder="{{ 'Email.Registration.CUIHint' | L }}"
+                keyboardType="number"
+            ></MTextField>
+            <ValidationError [show]="hasError('cif')" [errorMessage]="getError('cif')"></ValidationError>
+
+            <omro-checkbox #checkbox_1 formControlName="termsAndConditionsAccepted">
+                <FlexboxLayout class="checkbox-custom-text" flexWrap="wrap" alignItems="stretch">
+                    <Label
+                        alignSelf="flex-end"
+                        class="h3"
+                        (tap)="checkbox_1.toggle()"
+                        textWrap="true"
+                        [text]="('Email.Registration.TermsAndConditionsLabelText' | L) + ' '"
+                    ></Label>
+                    <Label class="clickable" [text]="'Email.Registration.TermsAndConditionsClickableSpanText' | L" textWrap="true" (tap)="onTCTap()"></Label>
+                </FlexboxLayout>
+            </omro-checkbox>
+            <omro-checkbox #checkbox_2 formControlName="marketingConsentIsGiven" marginTop="20">
+                <FlexboxLayout class="checkbox-custom-text" flexWrap="wrap" alignItems="stretch">
+                    <Label
+                        alignSelf="flex-end"
+                        class="h3"
+                        (tap)="checkbox_2.toggle()"
+                        textWrap="true"
+                        [text]="'Email.Registration.MarketingCampaignsLabelText' | L"
+                    ></Label>
+                    <Label class="clickable" [text]="'Email.Registration.MarketingCampaignsClickableSpanText' | L" textWrap="true" (tap)="onGDPRTap()"></Label>
+                </FlexboxLayout>
+            </omro-checkbox>
+        </StackLayout>
+
+        <StackLayout row="2" marginBottom="5%">
+            <Button
+                class="btn btn-primary"
+                marginBottom="20"
+                [isEnabled]="formGroup.valid"
+                [text]="'Email.Registration.SubmitButtonText' | L"
+                (tap)="onSubmit()"
+                marginLeft="0"
+                marginRight="0"
+            ></Button>
+            <FlexboxLayout class="checkbox-custom-text m-y-10" flexWrap="wrap" alignItems="stretch" horizontalAlignment="center">
+                <Label alignSelf="flex-end" class="title" textWrap="true" [text]="'Email.Registration.LoginLabelInfoText' | L"></Label>
+                <Label class="clickable" [text]="'Email.Registration.LoginLabelActionText' | L" textWrap="true" (tap)="onLogInTap()"></Label>
+            </FlexboxLayout>
+        </StackLayout>
+    </GridLayout>
+</ScrollView>

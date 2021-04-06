@@ -1,0 +1,17 @@
+@import '~/styles/_omro-main-colors.scss';
+@import '~/styles/_sizes.scss';
+
+.resend-code-btn {
+  margin-top: 80;
+  height: 10%;
+  font-size: $size-m;
+  color: $omro-gray;
+  &.active {
+      color: $omro-sky-dark;
+  }
+}
+.counter-info {
+  height: 20%;
+  color: $omro-blackish;
+  font-size: $size-m;
+}

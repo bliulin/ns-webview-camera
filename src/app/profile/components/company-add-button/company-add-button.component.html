@@ -1,0 +1,10 @@
+<StackLayout class="add-company-container" (tap)="onAddCompanyTap()">
+    <GridLayout columns="auto, auto" marginLeft="20">
+        <StackLayout class="company-icon-container">
+            <StackLayout class="icon">
+                <Label text="&#xf067;" class="fas lbl-icon"> </Label>
+            </StackLayout>
+        </StackLayout>
+        <Label android:verticalAlignment="center" col="1" [text]="'Profile.Companies.AddCompany' | L"></Label>
+    </GridLayout>
+</StackLayout>

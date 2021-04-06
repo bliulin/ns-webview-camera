@@ -1,0 +1,7 @@
+<GridLayout rows="*">
+    <omro-auth-component (complete)="onAuthComplete($event)" [leftKeyTemplate]="cancel"></omro-auth-component>
+</GridLayout>
+
+<ng-template #cancel>
+    <Label id="btnCancel" text="{{ 'Common.Cancel' | L }}" verticalAlignment="center" (tap)="onTapCancel()"></Label>
+</ng-template>

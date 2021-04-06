@@ -1,0 +1,12 @@
+<GridLayout marginTop="20" rows="48,*">
+    <SearchBar (clear)="onClear($event)" (loaded)="searchBarLoaded($event)" (submit)="onSubmit($event)"
+               (textChange)="onTextChanged($event)" class="searchbar" hint="{{ 'Common.SelectAValue' | L }}"
+               row="0"></SearchBar>
+    <ListView (itemTap)="onSelectItem($event)" [items]="displayedItems" class="list-group" row="1">
+        <ng-template let-item="item">
+            <GridLayout class="item list-group-item">
+                <Label [text]="item.text" class="list-item"></Label>
+            </GridLayout>
+        </ng-template>
+    </ListView>
+</GridLayout>

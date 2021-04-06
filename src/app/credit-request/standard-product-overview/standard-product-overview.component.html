@@ -1,0 +1,52 @@
+<StackLayout>
+    <GridLayout rows="auto" class="m-20">
+        <SVGImage class="uvp-logo" [src]="logo" horizontalAlignment="left"></SVGImage>
+        <Label horizontalAlignment="right" class="lbl-action fs-18" [text]="'Common.Skip' | L" (tap)="onSkipTap()"></Label>
+    </GridLayout>
+    <GridLayout class="carousel-container">
+        <Carousel
+            #carousel
+            row="1"
+            indicatorOffset="{{ offsetX }}, {{ offsetY }}"
+            [indicatorColor]="indicatorColor"
+            [indicatorColorUnselected]="indicatorColorUnselected"
+            finite="true"
+            showIndicator="true"
+            android:indicatorRadius="4"
+            (pageChanged)="onScreenChanged($event)"
+        >
+            <CarouselItem>
+                <CarouselScreen
+                    imageName="fastcredit"
+                    [title]="'CreditRequest.StandardProductOverview.Screen1_Title' | L"
+                    [description]="'CreditRequest.StandardProductOverview.Screen1_Description' | L"
+                ></CarouselScreen>
+            </CarouselItem>
+
+            <CarouselItem>
+                <CarouselScreen
+                    imageName="apply5minutes"
+                    [title]="'CreditRequest.StandardProductOverview.Screen2_Title' | L"
+                    [description]="'CreditRequest.StandardProductOverview.Screen2_Description' | L"
+                ></CarouselScreen>
+            </CarouselItem>
+
+            <CarouselItem>
+                <CarouselScreen
+                    imageName="loan24h"
+                    [title]="'CreditRequest.StandardProductOverview.Screen3_Title' | L"
+                    [description]="'CreditRequest.StandardProductOverview.Screen3_Description' | L"
+                ></CarouselScreen>
+            </CarouselItem>
+        </Carousel>
+        <StackLayout verticalAlignment="bottom">
+            <Button
+                width="30%"
+                class="btn btn-primary"
+                text="{{ selectedScreenIndex === 2 ? ('Common.Start' | L) : ('Common.Next' | L) }}"
+                (tap)="onButtonTap()"
+                horizontalAlignment="right"
+            ></Button>
+        </StackLayout>
+    </GridLayout>
+</StackLayout>

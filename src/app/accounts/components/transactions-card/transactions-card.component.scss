@@ -1,0 +1,44 @@
+@import "~/styles/_sizes.scss";
+@import "~/styles/_omro-main-colors.scss";
+@import "~/styles/mixins.scss";
+
+
+.account-transactions {
+  margin: 20, 0, 10, 20;
+}
+.main-container {
+  background-color: $omro-white;
+  @include border-top-radius();
+  .card-container {
+    &.odd {
+      background-color: $omro-gray-light;
+    }
+    .activity-card {
+      .icon {
+        margin: 0, 10, 0, 20;
+        font-size: $size-s + $size-m;
+        vertical-align: center;
+        &.default {
+            color: $omro-blackish;
+        }
+        &.rose {
+            color: $omro-rose;
+        }
+        &.sky-dark {
+            color: $omro-sky-dark;
+        }
+      }
+      .date-title {
+        padding-right: 10;
+        @include flex-design(column, center);
+      }
+      .currency {
+        color: $omro-gray;
+      }
+
+      .amount.positive {
+        color: $omro-sky-dark;
+      }
+    }
+  }
+}

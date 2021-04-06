@@ -1,0 +1,10 @@
+<StackLayout>
+    <BackButton (backWasPressed)="goBack()"></BackButton>
+
+    <omro-generic-pin
+        title="{{ 'Profile.Pin.ChangePin.Title' | L }}"
+        description="{{ 'Profile.Pin.ChangePin.Description' | L }}"
+        [resetNotification]="resetInput"
+        (codeEntered)="sendPinToConfirmationStep($event)"
+    ></omro-generic-pin>
+</StackLayout>

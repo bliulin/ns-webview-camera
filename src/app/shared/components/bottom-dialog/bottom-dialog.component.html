@@ -1,0 +1,34 @@
+<StackLayout>
+    <StackLayout class="bottom-sheet-slider"></StackLayout>
+    <StackLayout class="bottom-sheet-layout">
+        <Label class="h3 text-center m-t-20" text="{{ config.title }}"></Label>
+        <StackLayout class="m-y-20" ios:marginBottom="40">
+            <Label *ngIf="config.message" class="h2 m-x-20" textWrap="true" text="{{ config.message }}" marginBottom="20"></Label>
+
+            <ng-container *ngIf="config.orientation === Orientation.Horizontal; else vertical">
+                <GridLayout class="m-x-10" [columns]="columns" height="70">
+                    <ng-container *ngTemplateOutlet="buttons"></ng-container>
+                </GridLayout>
+            </ng-container>
+
+            <ng-template #vertical>
+                <StackLayout class="m-x-10">
+                    <ng-container *ngTemplateOutlet="buttons"></ng-container>
+                </StackLayout>
+            </ng-template>
+        </StackLayout>
+    </StackLayout>
+</StackLayout>
+
+<ng-template #buttons>
+    <Button
+        *ngFor="let action of config.actions; let i = index"
+        class="btn x-large dialog-btn"
+        [ngClass]="action.buttonType"
+        text="{{ action.text }}"
+        (tap)="close(action.result)"
+        [col]="i"
+        marginLeft="10"
+        marginRight="10"
+    ></Button>
+</ng-template>

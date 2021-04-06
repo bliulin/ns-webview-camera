@@ -1,0 +1,10 @@
+
+<DockLayout>
+    <StackLayout dock="top">
+        <omro-kyc-progress (close)="onPageClosed()" (goBack)="onGoBack()"></omro-kyc-progress>
+    </StackLayout>
+    <ScrollView>
+        <omro-informative-page [vm]="vm" (actionButtonTap)="onActionButtonTapped()">
+        </omro-informative-page>
+    </ScrollView>
+</DockLayout>

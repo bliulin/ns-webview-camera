@@ -1,0 +1,44 @@
+<ScrollView>
+    <DockLayout *ngIf="transfer$ | async as transfer">
+        <GridLayout dock="top" columns="60,*,60" rows="auto">
+            <BackButton (backWasPressed)="onBackTapped()"></BackButton>
+            <omro-close-button col="2" (tapClose)="onCloseTapped()"></omro-close-button>
+        </GridLayout>
+        <GridLayout dock="bottom" rows="auto" columns="*, *" marginBottom="30">
+            <Button
+                    (tap)="onCancelButtonTapped()"
+                    [text]="'Common.Quit' | L"
+                    class="btn btn-secondary x-large"
+            ></Button>
+            <Button
+                    (tap)="onConfirmTapped()"
+                    [text]="'Common.Confirm' | L"
+                    class="btn btn-primary x-large"
+                    col="1"
+            ></Button>
+        </GridLayout>
+        <StackLayout class="m-20" marginTop="30" verticalAlignment="top">
+            <Label class="h2" text="{{ 'Transfers.ConfirmTransferBetweenMyAccounts_Label' | L }}" textWrap="true"></Label>
+            <StackLayout [marginTop]="20">
+                <omro-info-field [caption]="'Transfers.TransactionValue_Label' | L">
+                    <StackLayout orientation="horizontal">
+                        <Label [text]="transfer.amount | number: '1.2'" class="title"></Label>
+                        <Label [text]="' ' + transfer.amountCurrency | lowercase" class="title"></Label>
+                    </StackLayout>
+                </omro-info-field>
+                <omro-info-field [caption]="'Transfers.TransferFromAccount_Label' | L">
+                    <Label [text]="transfer.sourceAccountTransactionName" class="title" textWrap="true"></Label>
+                </omro-info-field>
+                <omro-info-field [caption]="'Transfers.TransferToAccount_Label' | L">
+                    <Label [text]="transfer.destinationAccountTransactionName" class="title" textWrap="true"></Label>
+                </omro-info-field>
+                <omro-info-field [caption]="'Accounts.TransactionDetails.ExchangeRate2_Label' | L">
+                    <Label [text]="transfer.fxRate | number: '1.1'" class="title" textWrap="true"></Label>
+                </omro-info-field>
+                <omro-info-field *ngIf="transfer.currencyPair" [caption]="'Accounts.TransactionDetails.CurrencyPair_Label' | L">
+                    <Label [text]="transfer.currencyPair" class="title" textWrap="true"></Label>
+                </omro-info-field>
+            </StackLayout>
+        </StackLayout>
+    </DockLayout>
+</ScrollView>

@@ -1,0 +1,9 @@
+<ScrollView>
+    <ListView [items]="items" height="300" (itemTap)="onItemTap($event)">
+        <ng-template let-item="item">
+            <GridLayout>
+                <Label text="{{item.code}} ({{item.prefix}})" class="m-20 h3" ></Label>
+            </GridLayout>
+        </ng-template>
+    </ListView>
+</ScrollView>

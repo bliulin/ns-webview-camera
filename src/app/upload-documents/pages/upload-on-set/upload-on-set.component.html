@@ -1,0 +1,64 @@
+
+<omro-file-action-bar
+    [title]="uploadFileSetViewModel.setName"
+    [showSelectButton]="hasItemsUploaded && !uploadFileSetViewModel.readOnly"
+    (toggleSelection)="onToggleSelection($event)"
+    (backTapped)="goBack()"
+    (deleteTapped)="deleteSelectedFiles()"
+></omro-file-action-bar>
+
+<DockLayout>
+    <StackLayout>
+        <ng-container *ngIf="addDocumentsVisible; else noItems">
+            <ScrollView height="100%">
+                <DockLayout>
+                    <StackLayout dock="bottom" *ngIf="showButtons">
+                        <Button
+                            class="btn btn-primary"
+                            [isEnabled]="isFinalizeUploadButtonEnabled()"
+                            text="{{ 'UploadDocuments.FinalizeUpload' | L }}"
+                            (tap)="onFinalizeUpload()"
+                        >
+                        </Button>
+                        <Button class="btn btn-secondary" text="{{ 'UploadDocuments.ContinueLater' | L }}" (tap)="onContinueLater()"> </Button>
+                    </StackLayout>
+                    <FlexboxLayout class="files-container" flexWrap="wrap">
+                        <ng-container *ngFor="let file of fileViewModels; let i = index">
+                            <omro-file-upload
+                                (fileUploadedError)="onFileUploadedError($event)"
+                                (fileUploadedSuccess)="onFileUploadedSuccess($event)"
+                                [file]="file"
+                                [isSelectionMode]="isFileSelectionActivated"
+                                [isReadOnly]="uploadFileSetViewModel.readOnly"
+                                (fileDownloadedError)="onFileDownloadedError($event)"
+                                (fileDownloadedSuccess)="onFileDownloadedSuccess($event)"
+                            ></omro-file-upload>
+                        </ng-container>
+                        <omro-file-upload (itemTapped)="onAddFiles()" [isAddCardPlaceholder]="true" *ngIf="!uploadFileSetViewModel.readOnly"></omro-file-upload>
+                    </FlexboxLayout>
+                </DockLayout>
+            </ScrollView>
+        </ng-container>
+        <ng-template #noItems>
+            <ScrollView height="100%">
+            <StackLayout class="no-items-container">
+                <Image horizontalAlignment="center" src="res://apply5minutes" height="260" width="233"></Image>
+                <Label class="h2" horizontalAlignment="center" text="{{ 'ProductRequest.AddDocuments' | L }}" marginTop="30"></Label>
+                <Label
+                    class="m-y-20"
+                    horizontalAlignment="center"
+                    [text]="uploadFileSetViewModel.details"
+                    textAlignment="center"
+                    textWrap="true"
+                ></Label>
+                <Button
+                    (tap)="onAddDocumentsTapped()"
+                    horizontalAlignment="center"
+                    text="{{ 'ProductRequest.AddDocuments' | L }}"
+                    class="btn btn-primary"
+                ></Button>
+            </StackLayout>
+        </ScrollView>
+        </ng-template>
+    </StackLayout>
+</DockLayout>

@@ -1,0 +1,47 @@
+<ScrollView class="layout-gray" scrollBarIndicatorVisible="false">
+    <StackLayout class="m-t-10">
+        <GridLayout rows="auto">
+            <Label class="h2 m-x-20" [text]="'EWallet.Homepage.HeaderText' | L" horizontalAlignment="left" verticalAlignment="center"></Label>
+            <StackLayout class="tapable-area" *ngIf="(cards$ | async)?.length > 1" (tap)="onSwitchCardTap()" horizontalAlignment="right">
+                <StackLayout class="circle">
+                    <StackLayout class="switch" verticalAlignment="center">
+                        <SVGImage src="~/app/images/switch.svg" height="20" width="20"></SVGImage>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </GridLayout>
+
+        <ng-container *ngIf="state$ | async as state">
+            <!-- Card details -->
+            <StackLayout>
+                <ng-container *ngIf="state.onlyIssuedCards || state.bothAvailable">
+                    <omro-card-details></omro-card-details>
+                </ng-container>
+            </StackLayout>
+            <!-- Card details -->
+            <ng-container *ngIf="eligibleCards$ | async as eligibleCards">
+                <StackLayout class="m-y-10">
+                    <ng-container *ngIf="state.bothAvailable">
+                        <omro-card-add-button (addCardPressed)="onShowCardSelectionButtonTap(eligibleCards)"></omro-card-add-button>
+                    </ng-container>
+                </StackLayout>
+
+                <!-- Settings -->
+                <StackLayout *ngIf="selectedCard$ | async as selectedCard">
+                    <ng-container *ngIf="isConfigurationAvaible(state, selectedCard)">
+                        <omro-card-settings-card></omro-card-settings-card>
+                    </ng-container>
+                </StackLayout>
+                <!-- Settings -->
+
+                <!-- No card -->
+                <StackLayout>
+                    <ng-container *ngIf="state.onlyEligibleCards">
+                        <omro-no-card-added (addCardPressed)="onShowCardSelectionButtonTap(eligibleCards)"></omro-no-card-added>
+                    </ng-container>
+                </StackLayout>
+                <!-- No card -->
+            </ng-container>
+        </ng-container>
+    </StackLayout>
+</ScrollView>

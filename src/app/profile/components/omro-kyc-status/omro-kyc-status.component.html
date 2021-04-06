@@ -1,0 +1,8 @@
+<StackLayout class="container statusAnimation" verticalAlignment="center">
+  <StackLayout *ngIf="isKYCDataAvailable; else updateRequired" class="status-container up-to-date" verticalAlignment="center">
+  </StackLayout>
+  <ng-template #updateRequired>
+    <StackLayout class="status-container update-required" [class.profile]="isProfile" verticalAlignment="center">
+      </StackLayout>
+  </ng-template>
+</StackLayout>

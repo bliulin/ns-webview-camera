@@ -1,0 +1,59 @@
+<StackLayout class="main-container" shadow [elevation]="6" cornerRadius="15">
+    <GridLayout rows="auto" class="card-container">
+        <GridLayout rows="auto, auto , auto , auto, auto">
+            <StackLayout *ngIf="loan.alert" class="banner m-x-20" [class.warning]="isWarningAlert">
+                <GridLayout class="m-10" rows="auto" columns="auto, *">
+                    <SVGImage *ngIf="isWarningAlert; else success" src="~/app/images/danger.svg" height="27" width="32"></SVGImage>
+                    <ng-template #success>
+                        <SVGImage src="~/app/images/success.svg" height="27" width="32"></SVGImage>
+                    </ng-template>
+                    <StackLayout col="1" marginLeft="10">
+                        <Label class="title" [text]="loan.alert.alertTitle"></Label>
+                        <Label class="subtitle" [text]="loan.alert.alertMessage" textWrap="true"></Label>
+                    </StackLayout>
+                </GridLayout>
+            </StackLayout>
+            <GridLayout class="m-y-10 m-x-20" row="1" columns="*, auto">
+                <StackLayout verticalAlignment="center">
+                    <Label class="caption" [text]="'CreditRequest.Homepage.LoanCard.RemainingAmount' | L | uppercase"></Label>
+                    <Label>
+                        <FormattedString>
+                            <span class="h2" [text]="loan.amountRemained | number : '1.2'"></span>
+                            <span class="caption currency" [text]="loan.currencyDisplayName"></span>
+                        </FormattedString>
+                    </Label>
+                </StackLayout>
+                <!-- <MDCardView col="1" class="action-btn m-y-10" horizontalAlignment="right">
+                    <GridLayout verticalAlignment="center" rows="auto" columns="*, auto">
+                        <Label class="text-label text-center" [text]="'CreditRequest.Homepage.LoanCard.PayLoanActionButtonText' | L" android:verticalAlignment="center"></Label>
+                        <Label col="1" text="&#xf138;" class="fas icon m-10"></Label>
+                    </GridLayout>
+                </MDCardView> -->
+            </GridLayout>
+            <FlexboxLayout class="m-y-10 m-x-20" row="2" justifyContent="space-between">
+                <omro-info-field [caption]="'CreditRequest.Homepage.LoanCard.TotalAmount' | L | uppercase">
+                    <Label class="h3" [text]="(loan.totalAmount | number: '1.2') + ' ' + loan.currencyDisplayName"> </Label>
+                </omro-info-field>
+
+                <omro-info-field [caption]="'CreditRequest.Homepage.LoanCard.LoanPeriod' | L | uppercase">
+                    <Label class="title">
+                        <FormattedString>
+                            <span [text]="loan.months"></span>
+                            <span [text]="' ' + ('CreditRequest.Homepage.LoanCard.Months' | L)"></span>
+                        </FormattedString>
+                    </Label>
+                </omro-info-field>
+
+                <!--
+                <omro-info-field [caption]="'CreditRequest.Homepage.LoanCard.LoanDestination' | L | uppercase">
+                    <Label class="title" [text]="loan.purpose"> </Label>
+                </omro-info-field>
+                -->
+            </FlexboxLayout>
+            <!-- <StackLayout row="3" height="200" *ngIf="chartConfigString">
+                <Highcharts options="{{ chartConfigString }}"> </Highcharts>
+            </StackLayout> -->
+            <Button row="5" class="btn btn-active" [text]="'CreditRequest.Homepage.LoanCard.DetailsActionButtonText' | L" (tap)="onDetailsTap()"></Button>
+        </GridLayout>
+    </GridLayout>
+</StackLayout>

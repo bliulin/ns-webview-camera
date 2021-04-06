@@ -1,0 +1,35 @@
+@import '~/_app-variables.scss';
+
+.setting-container {
+  background-color: $omro-white;
+  .settings {
+    .settings-section-row {
+      background-color: $omro-white;
+      margin-left: 20;
+      @include flex-design(row, space-between);
+
+      .section-icon {
+        color: $omro-gray;
+        font-size: $size-l;
+      }
+      .section-name {
+        color: $omro-navy;
+      }
+
+      .section-description {
+        color: $omro-gray;
+      }
+
+      &.primary{
+        Label{
+          color: $primary;
+        }
+      }
+      &.error{
+        Label{
+          color: $omro-rose;
+        }
+      }
+    }
+  }
+}

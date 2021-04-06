@@ -1,0 +1,25 @@
+<StackLayout>
+  <BackButton (backWasPressed)="goBack()"></BackButton>
+  <StackLayout marginTop="20">
+      <omro-generic-pin
+          #genericPin
+          [title]="'EWallet.Homepage.NoCardsAdded.NewCard.ConfirmPinTitle' | L"
+          (codeEntered)="validatePIN($event)"
+      >
+      </omro-generic-pin>
+      <StackLayout minHeight="30">
+          <ValidationError
+              *ngIf="!!genericPinComponent && genericPinComponent.pin.valid === false"
+              class="text-center"
+              errorMessage="{{ 'Profile.Pin.Confirm.Error' | L }}"
+          >
+          </ValidationError>
+          <SuccessMessage
+              class="text-center"
+              *ngIf="!!genericPinComponent && genericPinComponent.pin.valid === true"
+              successMessage="{{ 'Profile.Pin.Confirm.Success' | L }}"
+          >
+          </SuccessMessage>
+      </StackLayout>
+  </StackLayout>
+</StackLayout>

@@ -1,0 +1,57 @@
+<ScrollView>
+    <PreviousNextView>
+        <DockLayout *ngIf="formGroup" [formGroup]="formGroup" class="page">
+            <GridLayout dock="top" columns="60,*,60" rows="auto">
+                <BackButton (backWasPressed)="onBackTapped()"></BackButton>
+                <omro-close-button col="2" (tapClose)="onCloseTapped()"></omro-close-button>
+            </GridLayout>
+            <GridLayout dock="bottom" rows="auto" columns="*, *" marginBottom="30">
+                <Button (tap)="onCancelButtonTapped()" [text]="'Common.Quit' | L"
+                    class="btn btn-secondary x-large"></Button>
+                <Button (tap)="onTransferTapped()" [isEnabled]="formGroup.valid" [text]="'Transfers.Pay_ButtonText' | L"
+                    class="btn btn-primary x-large" col="1"></Button>
+            </GridLayout>
+            <StackLayout class="m-20">
+                <Label [text]="'Transfers.NewTransfer_Label' | L" class="h2" textWrap="true"></Label>
+                <omro-funds-arrive-instantly-label [isFilboCustomer]="beneficiary.isFilboCustomer">
+                </omro-funds-arrive-instantly-label>
+                <StackLayout marginTop="30">
+                    <GridLayout rows="auto,auto" columns="*,auto">
+                        <omro-info-field [caption]="'Accounts.TransactionDetails.Beneficiary_Label' | L" colSpan="2">
+                            <Label [text]="beneficiary.name" class="title" textWrap="true"></Label>
+                        </omro-info-field>
+                        <omro-info-field row="1" [caption]="'Accounts.TransactionDetails.BenefIBAN_Label' | L">
+                            <Label [text]="partnerSelectedAccount.iban | iban" class="title" textWrap="true"></Label>
+                        </omro-info-field>
+                        <omro-info-field row="1" col="1" [caption]="'Accounts.AccountDetails.Currency' | L"
+                            horizontalAlignment="right">
+                            <Label [text]="partnerSelectedAccount.currencyCode" class="title" textWrap="true"
+                                   horizontalAlignment="right"></Label>
+                        </omro-info-field>
+                    </GridLayout>
+
+                    <omro-dropdown-field [field]="srcAccount" [formControlName]="srcAccount.fieldId"
+                        [modalDialogService]="modalDialogService" [placeholder]="srcAccount.textValue"
+                        [viewContainer]="vcRef">
+                    </omro-dropdown-field>
+                    <ValidationError [errorMessage]="getErrorMessage('srcAccount')" [show]="hasError('srcAccount')">
+                    </ValidationError>
+                </StackLayout>
+                <StackLayout>
+                    <omro-text-field [class.invalid]="hasError(amount.fieldId)" [formControlName]="amount.fieldId"
+                        keyboardType="number" [label]="amount.label" [placeholder]="amount.textValue" class="mtextfield"
+                        #amountField></omro-text-field>
+                    <ValidationError [errorMessage]="getErrorMessage('amount')" [show]="hasError('amount')">
+                    </ValidationError>
+                </StackLayout>
+                <StackLayout>
+                    <omro-text-field [class.invalid]="hasError(details.fieldId)" [formControlName]="details.fieldId"
+                        [label]="details.label" [placeholder]="details.textValue" [maxLength]="details.maxLength"
+                        class="mtextfield"></omro-text-field>
+                    <ValidationError [errorMessage]="getErrorMessage('details')" [show]="hasError('details')">
+                    </ValidationError>
+                </StackLayout>
+            </StackLayout>
+        </DockLayout>
+    </PreviousNextView>
+</ScrollView>

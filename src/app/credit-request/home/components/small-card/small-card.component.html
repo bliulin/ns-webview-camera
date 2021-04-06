@@ -1,0 +1,12 @@
+<GridLayout columns="100,*" class="smallcard-layout">
+
+    <StackLayout>
+        <SVGImage col="0" [src]="imageSrc"></SVGImage>
+    </StackLayout>
+
+    <StackLayout col="1">
+        <Label class="subtitle" [text]="details" textWrap="true" ></Label>
+        <Button class="btn btn-action small" [text]="buttonText" (tap)="onTap()" ></Button>
+    </StackLayout>
+
+</GridLayout>

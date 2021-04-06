@@ -1,0 +1,32 @@
+<ScrollView>
+    <DockLayout class="page" *ngIf="vm$ | async as vm">
+        <StackLayout dock="top" class="close-button-container" horizontalAlignment="right" (tap)="onClosed()">
+            <SVGImage class="close_icon" src="~/app/images/icon_close.svg"></SVGImage>
+        </StackLayout>
+        <GridLayout dock="bottom" rows="auto" columns="*, *" marginBottom="30">
+            <Button class="btn btn-error x-large" [text]="'Transfers.AddNewPartner.FilboPartner.Buttons.AddAnotherAccountText' | L" (tap)="onAddNewAccountTap()"></Button>
+            <Button col="1" class="btn btn-primary x-large" [text]="'Transfers.AddNewPartner.FilboPartner.Buttons.AssociateTheAccountText' | L" (tap)="onAssociateAccountTap(vm)"></Button>
+        </GridLayout>
+        <StackLayout class="m-20">
+            <Label class="h2" [text]="'Transfers.AddNewPartner.FilboPartner.HeaderText' | L" textWrap="true"></Label>
+            <StackLayout orientation="horizontal">
+                <Label class="filbo-instant-transfers uppercase" [text]="'Transfers.AddNewPartner.FilboPartner.InstantTransfersInfoText' | L" textWrap="true">
+                </Label>
+                <img height="25" marginTop="-5" src="res://icon" />
+            </StackLayout>
+            <omro-info-field class="m-y-30" [caption]="'Transfers.AddNewPartner.FilboPartner.BeneficiaryCaptionText' | L | uppercase">
+                <Label class="h3" [text]="vm.name" textWrap="true"> </Label>
+            </omro-info-field>
+            <ng-container *ngFor="let account of vm.filboAccounts">
+                <FlexboxLayout class="account-iban-currency-section m-y-20">
+                    <omro-info-field col="0" [caption]="'Transfers.AddNewPartner.FilboPartner.BeneficiaryIbanAccountCaptionText' | L | uppercase">
+                        <Label class="h3" [text]="account.iban"> </Label>
+                    </omro-info-field>
+                    <omro-info-field [caption]="'Transfers.AddNewPartner.FilboPartner.Currency' | L | uppercase">
+                        <Label class="h3" [text]="account.currencyCode"> </Label>
+                    </omro-info-field>
+                </FlexboxLayout>
+            </ng-container>
+        </StackLayout>
+    </DockLayout>
+</ScrollView>

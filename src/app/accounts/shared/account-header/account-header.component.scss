@@ -1,0 +1,4 @@
+@import '~/_app-variables.scss';
+.company-image {
+  @include square(45);
+}

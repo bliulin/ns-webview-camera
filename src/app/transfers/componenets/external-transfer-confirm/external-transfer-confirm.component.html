@@ -1,0 +1,57 @@
+<ScrollView>
+    <DockLayout *ngIf="payment">
+        <GridLayout dock="top" columns="60,*,60" rows="auto">
+            <BackButton (backWasPressed)="onBackTapped()"></BackButton>
+            <omro-close-button col="2" (tapClose)="onCloseTapped()"></omro-close-button>
+        </GridLayout>
+        <GridLayout dock="bottom" rows="auto" columns="*, *" marginBottom="30">
+            <Button
+                    (tap)="onCancelButtonTapped()"
+                    [text]="'Common.Quit' | L"
+                    class="btn btn-secondary x-large"
+            ></Button>
+            <Button
+                    (tap)="onConfirmTapped()"
+                    [text]="'Common.Confirm' | L"
+                    class="btn btn-primary x-large"
+                    col="1"
+            ></Button>
+        </GridLayout>
+        <StackLayout class="m-20" verticalAlignment="top">
+            <Label class="h2" text="{{ 'Transfers.ConfirmTransfer_Label' | L }}" textWrap="true"></Label>
+            <omro-funds-arrive-instantly-label [isFilboCustomer]="beneficiary.isFilboCustomer"></omro-funds-arrive-instantly-label>
+            <GridLayout marginTop="20" columns="*,*" rows="auto,auto,auto,auto,auto,auto,auto,auto">
+                <omro-info-field [caption]="'Transfers.TransactionValue_Label' | L">
+                    <StackLayout orientation="horizontal">
+                        <Label [text]="payment.amount | number: '1.2'" class="title"></Label>
+                        <Label [text]="' ' + payment.amountCurrency | lowercase" class="title"></Label>
+                    </StackLayout>
+                </omro-info-field>
+                <omro-info-field [caption]="'Accounts.TransactionDetails.TransactionType_Label' | L" col="1"
+                                 row="0">
+                    <Label [text]="payment.categoryName" class="title" textWrap="true"> </Label>
+                </omro-info-field>
+                <omro-info-field [caption]="'Accounts.TransactionDetails.TransactionDate_Label' | L" col="0"
+                                 row="1">
+                    <Label [text]="payment.valueDate | date: 'dd.MM.yyyy'" class="title"> </Label>
+                </omro-info-field>
+                <omro-info-field [caption]="'Transfers.MaxExecutionDate_Label' | L" col="0"
+                                 row="1" col="1">
+                    <Label [text]="payment.maxBookedDate | date: 'dd.MM.yyyy'" class="title"> </Label>
+                </omro-info-field>
+                <omro-info-field [caption]="'Accounts.TransactionDetails.Beneficiary_Label' | L" col="0" colSpan="2" row="2">
+                    <Label [text]="payment.otherPartyName" class="title" textWrap="true"> </Label>
+                </omro-info-field>
+                <omro-info-field [caption]="'Accounts.TransactionDetails.BenefIBAN_Label' | L" col="0" colSpan="2" row="3">
+                    <Label [text]="payment.otherPartyAccount" class="title" textWrap="true"> </Label>
+                </omro-info-field>
+                <omro-info-field [caption]="'Accounts.TransactionDetails.BenefBank_Label' | L" col="0" colSpan="2" row="4">
+                    <Label [text]="payment.otherPartyBank" class="title" textWrap="true"> </Label>
+                </omro-info-field>
+                <omro-info-field row="5" colSpan="2" [caption]="'Accounts.TransactionDetails.ExchangeRate2_Label' | L">
+                    <Label [text]="payment.fxRate | number: '1.1'" class="title"></Label>
+                </omro-info-field>
+            </GridLayout>
+        </StackLayout>
+    </DockLayout>
+</ScrollView>

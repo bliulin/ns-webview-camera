@@ -1,0 +1,10 @@
+<StackLayout class="add-card-container" (tap)="onAddCardTap()">
+  <GridLayout columns="auto, auto" marginLeft="20">
+      <StackLayout class="card-icon-container">
+          <StackLayout class="icon">
+              <Label text="&#xf067;" class="fas lbl-icon"> </Label>
+          </StackLayout>
+      </StackLayout>
+      <Label android:verticalAlignment="center" col="1" [text]="'Accounts.Homepage.ButtonText_NewAccount' | L"></Label>
+  </GridLayout>
+</StackLayout>

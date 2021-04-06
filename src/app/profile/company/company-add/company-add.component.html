@@ -1,0 +1,22 @@
+<ScrollView>
+    <DockLayout>
+        <StackLayout  dock="top" class="close-button-container" horizontalAlignment="right" (tap)="onCloseButtonTap()">
+            <SVGImage class="close_icon" src="~/app/images/icon_close.svg"></SVGImage>
+        </StackLayout>
+        <Button dock="bottom" class="btn btn-primary x-large" marginBottom="20" text="Adaugă" [isEnabled]="cui.valid" (tap)="onActionTap()"></Button>
+        <FlexboxLayout class="main-container" flexDirection="column" justifyContent="space-between">
+            <StackLayout class="m-20">
+                <Label class="h2" marginBottom="100" text="Adaugă companie"></Label>
+                <omro-text-field
+                    label="CUI"
+                    errorMessage="Invalid CUI"
+                    [showError]="!cui.valid && cui.touched"
+                    [formControl]="cui"
+                    keyboardType="number"
+                    returnType="go"
+                    (returnPress)="onActionTap()"
+                ></omro-text-field>
+            </StackLayout>
+        </FlexboxLayout>
+    </DockLayout>
+</ScrollView>

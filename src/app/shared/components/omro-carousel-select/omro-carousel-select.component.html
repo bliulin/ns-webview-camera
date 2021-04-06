@@ -1,0 +1,11 @@
+<FlexboxLayout justifyContent="{{ items.length > 2 ? 'space-between' : 'flex-start'}}">
+  <ng-container *ngFor="let item of items">
+    <StackLayout
+      class="item-card"
+      [class.selected]="item === selectedItem"
+      (tap)="selectItem(item)"
+    >
+      <Label class="text-center" [text]="format(item)"></Label>
+    </StackLayout>
+  </ng-container>
+</FlexboxLayout>

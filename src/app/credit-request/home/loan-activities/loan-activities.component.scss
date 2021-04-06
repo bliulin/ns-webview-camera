@@ -1,0 +1,36 @@
+@import "~/styles/_sizes.scss";
+@import "~/styles/_omro-main-colors.scss";
+@import "~/styles/mixins.scss";
+
+
+.loan-activities {
+  margin: 20, 0, 10, 20;
+}
+.main-container {
+  background-color: $omro-white;
+  @include border-top-radius();
+  .card-container {
+    &.odd {
+      background-color: $omro-gray-light;
+    }
+    .activity-card {
+      .icon {
+        color: $omro-orange;
+        font-size: $size-s + $size-m;
+        margin-right: 10;
+        vertical-align: center;
+      }
+      .date-title {
+        padding-right: 10;
+        @include flex-design(column, center);
+      }
+      .currency {
+        color: $omro-gray;
+      }
+
+      .amount.positive {
+        color: $omro-sky-dark;
+      }
+    }
+  }
+}

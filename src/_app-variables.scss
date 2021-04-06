@@ -1,0 +1,89 @@
+@import '~nativescript-theme-core/scss/light';
+
+@import "./styles/omro-main-colors";
+@import './styles/sizes';
+@import './styles/mixins.scss';
+
+/*
+* Sizes
+*/
+
+// Button
+$btn-margin-x:	20;
+$btn-margin-y:	10;
+
+/*
+ * Nativescript core variables
+*/
+$primary: $omro-green;
+$secondary: $omro-sky;
+
+$background: $omro-white;
+$background-dark: $omro-gray-light;
+$gray:$omro-gray;
+
+$headings-color:$omro-blackish;
+$text-color:$omro-blackish;
+$error: $omro-red;
+$accent: $omro-green-dark;
+
+/*
+ * Custom variables
+ */
+
+$btn-color-primary: $omro-green;
+$btn-color-primary-active: $omro-green-light;
+$btn-color-primary-text:$omro-white;
+
+$btn-color-secondary:$omro-gray-light;
+$btn-color-secondary-active:$omro-sky;
+$btn-color-secondary-text: $omro-blackish;
+
+$btn-color-error:$omro-rose-light;
+$btn-color-error-active:$omro-rose-light;
+$btn-color-error-text:$omro-rose;
+
+$btn-color-disabled:$omro-gray;
+$btn-color-disabled-text:$omro-white;
+$btn-color-border:$omro-gray;
+
+$page-back-color: $omro-white;
+$text-color-caption: $omro-gray;
+
+$mtextfield-color-background:$omro-gray-light;
+$mtextfield-color-border: $omro-sky-dark;
+$mtextfield-color-text:$omro-blackish;
+
+
+$lbl-color-action: $omro-sky-dark;
+
+$error-light:$omro-rose-light;
+$error-dark:$omro-red;
+
+$success-dark: $omro-green;
+
+$accent: $omro-green;
+$accent-dark:$omro-blackish;
+
+/*
+*  Typography
+*/
+
+$font-weight-light: 100;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+
+@mixin text-regular(){
+    // exact font filename 'WorkSans-Regular' used on android
+    // font family 'Work Sans' + font-weight used on iOS
+    font-family: 'AzoSansRegular', 'Azo Sans';
+    font-weight: $font-weight-regular;
+  }
+  @mixin text-light(){
+    font-family: 'AzoSansLight', 'Azo Sans';
+    font-weight: $font-weight-light;
+  }
+  @mixin text-medium(){
+    font-family: 'AzoSansMedium', 'Azo Sans';
+    font-weight: $font-weight-medium;  
+  }

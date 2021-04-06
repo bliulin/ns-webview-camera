@@ -1,0 +1,17 @@
+@import "../../../app-variables";
+@import '~/styles/_omro-main-colors.scss';
+.page{
+  text-align: center;
+  padding-top: 20;
+}
+
+.header{
+  font-size: 48;
+  font-weight: $font-weight-light;
+}
+
+.title{
+  font-size: $size-l;
+  font-weight: $font-weight-light;
+}
+

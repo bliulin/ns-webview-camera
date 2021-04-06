@@ -1,0 +1,7 @@
+@import '~/styles/_omro-main-colors.scss';
+@import '~/styles/mixins.scss';
+
+.percentage-circle {
+    background-color: $omro-white;
+    @include circle(200);
+  }

@@ -1,0 +1,23 @@
+# iOS build
+
+trigger:
+- master
+
+pool:
+  vmImage: 'macos-latest'
+
+steps:
+- task: UseNode@1
+  inputs:
+    version: '12.x'
+- task: CmdLine@2
+  inputs:
+    script: |
+      npm install -g nativescript
+      pip install six
+      tns build ios
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'platforms/ios/build/Debug-iphonesimulator/DigitalApp.app'
+    ArtifactName: 'digitalAppIOS'
+    publishLocation: 'Container'

@@ -1,0 +1,49 @@
+@import '~/styles/_omro-main-colors.scss';
+@import '~/styles/_sizes.scss';
+
+.mtextfield-layout {
+  background-color: $mtextfield-color-background;
+  border-radius: $size-s;
+  &-label {
+    height: 20;
+    color: $text-color;
+    padding-left: $size-m;
+  }
+
+  .input {
+    height: 50;
+    font-size: $size-m;
+    color: $mtextfield-color-text;
+    margin-left: $size-m;
+    border-bottom-width: 1;
+    border-bottom-color: transparent;
+  }
+  &.selected {
+    border-width: 2;
+    border-color: $mtextfield-color-border;
+  }
+  &.invalid {
+    border-width: 2;
+    border-color: $error-dark;
+  }
+}
+.mtextfield-layout-border {
+  border-width: 2;
+  border-radius: $size-s + 2;
+  border-color: $mtextfield-color-background;
+  &.visible {
+    border-color: lighten($omro-sky-dark, 30%);
+  }
+}
+
+.mtextfield {
+  &.invalid .mtextfield-layout {
+    border-width: 2;
+    border-color: $error-dark;
+  }
+  &.invalid .mtextfield-layout-border {
+    border-width: 2;
+    border-radius: $size-s + 1;
+    border-color: $omro-white;
+  }
+}

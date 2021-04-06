@@ -1,0 +1,22 @@
+@import '~/styles/_omro-main-colors.scss';
+@import '~/styles/mixins.scss';
+
+.add-company-container {
+  background-color: $omro-white;
+  .company-icon-container {
+    margin-right: 10;
+    vertical-align: center;
+    background-color: $omro-white;
+    width: 65;
+    height: 65;
+    .icon {
+      vertical-align: center;
+      background-color: $omro-sky-dark;
+      @include circle(30);
+      text-align: center;
+      .lbl-icon {
+        color: $omro-white;
+      }
+    }
+  }
+}

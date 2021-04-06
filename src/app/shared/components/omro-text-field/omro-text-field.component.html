@@ -1,0 +1,27 @@
+<StackLayout [class.readonly]="isReadOnly" class="omro-text-field">
+    <Label *ngIf="label" [text]="label" class="font-label" textWrap="true"></Label>
+    <StackLayout *ngIf="!isReadOnly; else readonly">
+        <TextField
+            #valueRef="ngModel"
+            (blur)="onBlur()"
+            (returnPress)="onReturnPress()"
+            [(ngModel)]="value"
+            [hint]="placeholder"
+            [keyboardType]="keyboardType"
+            [maxLength]="maxLength"
+            [returnKeyType]="returnKeyType"
+            class="text-field"
+            [autocorrect]="autocorrect"
+            [autocapitalizationType]="autocapitalizationType"
+        ></TextField>
+        <StackLayout *ngIf="showCounter" height="40" verticalAlignment="center">
+            <Label *ngIf="!valueRef.pristine" class="h3 letters-count"
+                   text="{{ value.length + '/' + maxLength }}"></Label>
+        </StackLayout>
+
+        <ValidationError *ngIf="showError" [errorMessage]="errorMessage" [show]="showError"></ValidationError>
+    </StackLayout>
+    <ng-template #readonly>
+        <Label [text]="value ? value : '-'" class="readonly" textWrap="true"></Label>
+    </ng-template>
+</StackLayout>

@@ -1,0 +1,47 @@
+<DockLayout stretchLastChild="true">
+  <StackLayout dock="bottom">
+    <FlexboxLayout flexDirection="row" justifyContent="space-around" class="nav-bar" >
+
+      <!--
+      <GridLayout class="nav-item" [nsRouterLink]="[{ outlets: { dashboard: ['accounts'] }}]" clearHistory="true"
+                  [class.active]="isRouteActive('dashboard:accounts')">
+        <StackLayout class="nav-item-top" ></StackLayout>
+        <Label text="&#x0041;" class="ff nav-item-lbl"></Label>
+      </GridLayout>
+      -->
+
+      <!--
+      <GridLayout class="nav-item" [nsRouterLink]="[{ outlets: { dashboard: ['transfers'] }}]" clearHistory="true"
+                  [class.active]="isRouteActive('dashboard:transfers')">
+        <StackLayout class="nav-item-top" ></StackLayout>
+        <Label text="&#x004B;" class="ff nav-item-lbl"></Label>
+      </GridLayout>
+      -->
+   
+      <GridLayout class="nav-item" [nsRouterLink]="[{ outlets: { dashboard: ['home'] }}]" clearHistory="true"
+                  [class.active]="isRouteActive('dashboard:home')">
+        <StackLayout class="nav-item-top" ></StackLayout>
+        <Label text="&#x004C;" class="ff nav-item-lbl"></Label>
+      </GridLayout>      
+
+      <!--
+      <GridLayout class="nav-item" [nsRouterLink]="[{ outlets: { dashboard: ['e-wallet'] }}]" clearHistory="true"
+                  [class.active]="isRouteActive('dashboard:e-wallet')">
+        <StackLayout class="nav-item-top" ></StackLayout>
+        <Label text="&#x0047;" class="ff nav-item-lbl"></Label>
+      </GridLayout>
+      -->
+
+      <GridLayout class="nav-item" [nsRouterLink]="[{ outlets: { dashboard: ['profile'] }}]" clearHistory="true"
+                  [class.active]="isRouteActive('dashboard:profile')">
+        <StackLayout class="nav-item-top" ></StackLayout>
+        <Label text="&#x0049;" class="ff nav-item-lbl"></Label>
+      </GridLayout>
+
+    </FlexboxLayout>
+  </StackLayout>
+  <StackLayout>
+    <page-router-outlet name="dashboard" ></page-router-outlet>
+  </StackLayout>
+</DockLayout>
+

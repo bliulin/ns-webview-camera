@@ -1,0 +1,68 @@
+@import '~/styles/_omro-main-colors.scss';
+
+.main-container {
+  margin: 5, 0, 20, 0;
+  .card-container {
+    border-radius: 15;
+    background-color: $omro-white;
+  }
+}
+
+/* 
+  --> Animations
+*/
+
+@keyframes imageAnimation {
+  0% {
+    opacity: 0;
+    transform: translate(30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes percentageState {
+  0% {
+    transform: translate(0) scale(1);
+  }
+  100% {
+    transform: translate(60%, 100%) scale(0.4);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.91);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.imageAnimation {
+  animation-name: imageAnimation;
+  animation-fill-mode: forwards;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+}
+
+.percentageStateAnimation {
+  animation-name: percentageState;
+  animation-fill-mode: forwards;
+  animation-duration: 1.5s;
+  animation-delay: 0.5s;
+  animation-timing-function: ease-in;
+}
+
+.pulseAnimation {
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+  animation-duration: 1.5s;
+  animation-delay: 2.5s;
+  animation-timing-function: ease-out;
+}

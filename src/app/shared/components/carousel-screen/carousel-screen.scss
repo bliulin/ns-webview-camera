@@ -1,0 +1,10 @@
+@import '~/styles/mixins.scss';
+@import '~/styles/_omro-main-colors.scss';
+
+.main-container {
+  @include flex-design(column, space-between);
+
+  .lbl-title, .lbl-description {
+    color: $omro-navy;
+  }
+}

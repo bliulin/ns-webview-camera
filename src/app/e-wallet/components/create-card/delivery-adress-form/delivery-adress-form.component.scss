@@ -1,0 +1,8 @@
+@import '~/styles/_omro-main-colors.scss';
+@import '~/styles/_sizes.scss';
+
+.error-lbl {
+  font-size: $size-m - 4;
+  color: $omro-red;
+  margin: 5, 0, 10, 10;
+}
