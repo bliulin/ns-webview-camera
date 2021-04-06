@@ -1,3 +1,4 @@
+import { CameraComponent } from './components/camera/camera.component';
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptRouterModule } from "nativescript-angular";
 import { Routes } from "@angular/router";
@@ -12,12 +13,13 @@ import { KycApiService } from "~/app/kyc/services/kyc-api.service";
 
 const routes: Routes = [
     //{ path: ':source', redirectTo: 'kyc-step' },
-    { path: '', redirectTo: 'kyc-step' },
+    { path: '', redirectTo: 'kyc-camera' },
     { path: 'kyc-step', component: KycStepComponent, pathMatch: 'full' },
     { path: 'kyc-execution', component: KycExecutionModalComponent, pathMatch: 'full' },
     { path: 'kyc-placeholder', component: KycPlaceholderModalComponent, pathMatch: 'full' },
     { path: 'kyc-finish', component: KycFinishComponent, pathMatch: 'full' },
-    { path: 'kyc-redirect-finish', component: KycRedirectFinishComponent, pathMatch: 'full' }
+    { path: 'kyc-redirect-finish', component: KycRedirectFinishComponent, pathMatch: 'full' },
+    { path: 'kyc-camera', component: CameraComponent, pathMatch: 'full' }
 ];
 
 @NgModule({

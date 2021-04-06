@@ -1,3 +1,4 @@
+import { CameraComponent } from './components/camera/camera.component';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { SharedModule } from "~/app/shared/shared.module";
 import { KycStepComponent } from './components/kyc-step/kyc-step.component';
@@ -12,7 +13,14 @@ import { KycPlaceholderModalComponent } from "~/app/kyc/components/kyc-placehold
 import { KycRedirectFinishComponent } from "~/app/kyc/components/kyc-redirect-finish/kyc-redirect-finish.component";
 
 @NgModule({
-    declarations: [KycStepComponent, KycProgressComponent, KycExecutionModalComponent, KycFinishComponent, KycPlaceholderModalComponent, KycRedirectFinishComponent],
+    declarations: [KycStepComponent,
+        KycProgressComponent,
+        KycExecutionModalComponent,
+        KycFinishComponent,
+        KycPlaceholderModalComponent,
+        KycRedirectFinishComponent,
+        CameraComponent
+    ],
     imports: [
         KycRoutingModule,
         SharedModule

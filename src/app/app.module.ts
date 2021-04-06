@@ -1,3 +1,4 @@
+import { CameraComponent } from './kyc/components/camera/camera.component';
 import { NgModule, NO_ERRORS_SCHEMA, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +28,7 @@ registerLocaleData(localeRo, 'ro-RO');
         StartupModule,
         UnlockModule,
     ],
-    declarations: [AppComponent, DashboardComponent, DevLinksComponent],
+    declarations: [AppComponent, DashboardComponent, DevLinksComponent, CameraComponent],
     schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule {}
