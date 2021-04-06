@@ -28,7 +28,7 @@ registerLocaleData(localeRo, 'ro-RO');
         StartupModule,
         UnlockModule,
     ],
-    declarations: [AppComponent, DashboardComponent, DevLinksComponent, CameraComponent],
+    declarations: [AppComponent, CameraComponent],
     schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule {}
