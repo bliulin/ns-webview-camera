@@ -46,6 +46,7 @@ export class CameraComponent {
             settings.allowContentAccess = true;
             settings.setAllowFileAccessFromFileURLs(true);
             settings.setAllowUniversalAccessFromFileURLs(true);
+            settings.mediaPlaybackRequiresUserGesture = false;
 
             webView.android.setWebViewClient(new android.webkit.WebViewClient());
 

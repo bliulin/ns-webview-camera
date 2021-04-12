@@ -3,12 +3,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { NativeScriptLocalizeModule } from 'nativescript-localize/angular';
-import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
 import { CommonModule } from '@angular/common';
-import { NativeScriptMaterialCardViewModule } from 'nativescript-material-cardview/angular';
 import { NativeScriptSvgModule } from '@teammaestro/nativescript-svg/angular';
 import { WebViewExtModule } from '@nota/nativescript-webview-ext/angular';
-import { NativeScriptUIGaugeModule } from 'nativescript-ui-gauge/angular';
 
 // This is a module that should be imported in every feature module. It should export vital modules like
 // NativeScriptCommonModule, and it should contain directives and components used by every feature module.
@@ -20,10 +17,7 @@ import { NativeScriptUIGaugeModule } from 'nativescript-ui-gauge/angular';
         NativeScriptFormsModule,
         ReactiveFormsModule,
         NativeScriptLocalizeModule,
-        TNSFontIconModule,
         NativeScriptSvgModule,
-        NativeScriptMaterialCardViewModule,
-        NativeScriptUIGaugeModule,
         WebViewExtModule
     ],
     exports: [
@@ -33,7 +27,6 @@ import { NativeScriptUIGaugeModule } from 'nativescript-ui-gauge/angular';
         ReactiveFormsModule,
         NativeScriptLocalizeModule,
 
-        TNSFontIconModule,
         WebViewExtModule
     ],
     declarations: [

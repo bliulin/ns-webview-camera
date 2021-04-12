@@ -4,9 +4,7 @@ import { NgModule, NO_ERRORS_SCHEMA, LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
 import { AppRoutingPreloadStrategy } from '~/app/app-routing.preload-strategy';
-import { NativeScriptMaterialBottomSheetModule } from 'nativescript-material-bottomsheet/angular';
 
 import { registerLocaleData } from '@angular/common';
 import localeRo from '@angular/common/locales/ro';
@@ -19,8 +17,6 @@ registerLocaleData(localeRo, 'ro-RO');
     imports: [
         AppRoutingModule,
         CoreModule,
-        NativeScriptMaterialBottomSheetModule.forRoot(),
-        TNSFontIconModule.forRoot(),
     ],
     declarations: [AppComponent, CameraComponent],
     schemas: [NO_ERRORS_SCHEMA]
