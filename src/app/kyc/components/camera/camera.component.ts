@@ -10,9 +10,8 @@ const permissions = require("nativescript-permissions");
     template: `
         <DockLayout stretchLastChild="true">
             <Label dock="top" style="color: black">Camera POC</Label>
-            <!-- <WebView #webView [src]="url" (loaded)="onWebViewLoaded()" marginTop="10"></WebView> -->
-
-            <nota:WebViewExt #webView src="https://www.google.com" (loaded)="onWebViewLoaded()"></nota:WebViewExt>
+            <WebView #webView [src]="url" (loaded)="onWebViewLoaded()" marginTop="10"></WebView>
+            <!-- <nota:WebViewExt #webView [src]="url" (loaded)="onWebViewLoaded()"></nota:WebViewExt> -->
         </DockLayout>
     `
 })
@@ -32,8 +31,7 @@ export class CameraComponent {
 
     public onWebViewLoaded(): void {
         console.log('Loaded webview');
-        //this.setupWebViewInterface(this.url);
-        //this.setup2();
+        this.setupWebViewInterface(this.url);
     }
 
     private setupWebViewInterface(url: string): void {
@@ -55,8 +53,8 @@ export class CameraComponent {
                 console.log('Permissions granted');
                 webView.android.setWebChromeClient(new KycExecutionPermissions());
                 setTimeout(()=>{
-                    webView.reload();
-                    console.log('reloaded');
+                    //webView.reload();
+                    //console.log('reloaded');
                 }, 500);
             })
             .catch(() => {

@@ -26,7 +26,8 @@ export class KycExecutionPermissions extends android.webkit.WebChromeClient {
     //@ts-ignore
     onConsoleMessage(consoleMessage: android.webkit.ConsoleMessage): boolean {
         console.log('CONSOLE message: ' + consoleMessage.message);
-        consoleMessage.message();
+        var s = consoleMessage.message();
+        console.log(s);
         return true;
     }
 }
