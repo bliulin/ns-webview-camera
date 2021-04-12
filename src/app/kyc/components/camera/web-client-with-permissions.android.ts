@@ -17,9 +17,16 @@ export class KycExecutionPermissions extends android.webkit.WebChromeClient {
         }
     }
 
+    onPermissionRequestCanceled(permissionRequest: android.webkit.PermissionRequest) {
+        console.log('onPermissionRequestCanceled');
+    }
+
+
+
     //@ts-ignore
     onConsoleMessage(consoleMessage: android.webkit.ConsoleMessage): boolean {
         console.log('CONSOLE message: ' + consoleMessage.message);
+        consoleMessage.message();
         return true;
     }
 }

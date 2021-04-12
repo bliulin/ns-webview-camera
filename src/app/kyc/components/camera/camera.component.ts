@@ -8,17 +8,18 @@ const permissions = require("nativescript-permissions");
 @Component({
     selector: 'camera',
     template: `
-        <DockLayout>
+        <DockLayout stretchLastChild="true">
             <Label dock="top" style="color: black">Camera POC</Label>
-            <WebView #webView [src]="url" (loaded)="onWebViewLoaded()" marginTop="10"></WebView>
+            <!-- <WebView #webView [src]="url" (loaded)="onWebViewLoaded()" marginTop="10"></WebView> -->
 
-            <!-- <nota:WebViewExt #webView [src]="url" (loaded)="onWebViewLoaded()" debugMode="true"></nota:WebViewExt> -->
+            <nota:WebViewExt #webView src="https://www.google.com" (loaded)="onWebViewLoaded()"></nota:WebViewExt>
         </DockLayout>
     `
 })
 export class CameraComponent {
     public url = 'https://bliulinstorage.z6.web.core.windows.net/';
     //public url = "https://playcanv.as/p/jH8nuvmK/";
+    //public url = "https://test-kyc-iframe.filbo.ro/selfie-one-stage?IdInternalRequest=5bb8180e-8983-4fd9-988a-ebbe832c7688&IdExternalRequest=bed988de-6573-41a8-baf5-7ca003a59c50&culture=RO";
 
     @ViewChild('webView', { static: true })
     // tslint:disable-next-line: member-access
@@ -31,7 +32,7 @@ export class CameraComponent {
 
     public onWebViewLoaded(): void {
         console.log('Loaded webview');
-        this.setupWebViewInterface(this.url);
+        //this.setupWebViewInterface(this.url);
         //this.setup2();
     }
 
@@ -53,7 +54,10 @@ export class CameraComponent {
             permissions.requestPermissions([android.Manifest.permission.CAMERA], "").then(() => {
                 console.log('Permissions granted');
                 webView.android.setWebChromeClient(new KycExecutionPermissions());
-                webView.reload();
+                setTimeout(()=>{
+                    webView.reload();
+                    console.log('reloaded');
+                }, 500);
             })
             .catch(() => {
                 console.log('No permissions granted');
