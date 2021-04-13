@@ -18,6 +18,8 @@ const permissions = require("nativescript-permissions");
 export class CameraComponent {
     public url = 'https://bliulinstorage.z6.web.core.windows.net/';
     //public url = "https://playcanv.as/p/jH8nuvmK/";
+    //public url = "https://webcamtests.com/";
+    //public url = "https://www.onlinemictest.com/webcam-test/";
     //public url = "https://test-kyc-iframe.filbo.ro/selfie-one-stage?IdInternalRequest=5bb8180e-8983-4fd9-988a-ebbe832c7688&IdExternalRequest=bed988de-6573-41a8-baf5-7ca003a59c50&culture=RO";
 
     @ViewChild('webView', { static: true })
@@ -53,8 +55,8 @@ export class CameraComponent {
                 console.log('Permissions granted');
                 webView.android.setWebChromeClient(new KycExecutionPermissions());
                 setTimeout(()=>{
-                    //webView.reload();
-                    //console.log('reloaded');
+                    webView.reload();
+                    console.log('reloaded');
                 }, 500);
             })
             .catch(() => {
